@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>МамаМаркет</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--primary:#FF6B8A;--primary-dark:#E85A7A;--primary-light:#FFE4E9;--secondary:#4ECDC4;--accent:#FFE66D;--dark:#2D3436;--gray:#636E72;--gray-light:#F5F6FA;--white:#FFFFFF;--success:#00B894;--shadow:0 4px 20px rgba(0,0,0,0.08);--shadow-hover:0 8px 30px rgba(0,0,0,0.12);--radius:16px;--radius-sm:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:var(--gray-light);color:var(--dark);line-height:1.6}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;font-family:inherit}
+img{max-width:100%;display:block}
+
+/* DARK MODE */
+body.dark{--white:#1E1E2E;--gray-light:#2A2A3E;--dark:#E8E8F0;--gray:#A0A0B8;--primary-light:#2D1B2E;--shadow:0 4px 20px rgba(0,0,0,0.3);--shadow-hover:0 8px 30px rgba(0,0,0,0.4)}
+body.dark .header{background:#16162A;border-bottom:1px solid #2A2A3E}
+body.dark .hero{background:linear-gradient(135deg,#1E1E2E 0%,#1A1A2E 100%)}
+body.dark .listing-card,body.dark .cat-card,body.dark .consult-card,body.dark .feature-card,body.dark .hero-card{background:#16162A}
+body.dark .tab-btn{background:#16162A;color:#A0A0B8}
+body.dark .tab-btn.active{background:var(--primary);color:#fff}
+body.dark .modal,body.dark .modal-header{background:#16162A}
+body.dark .modal-header{border-color:#2A2A3E}
+body.dark .form-group input,body.dark .form-group select,body.dark .form-group textarea{background:#1E1E2E;border-color:#2A2A3E;color:#E8E8F0}
+body.dark .social-btn{background:#1E1E2E;border-color:#2A2A3E;color:#E8E8F0}
+body.dark .auth-tab{color:#A0A0B8}
+body.dark .auth-tab.active{color:var(--primary)}
+body.dark .listing-footer{border-color:#2A2A3E}
+body.dark .footer{background:#0D0D1A}
+body.dark .footer-links a{color:rgba(255,255,255,0.5)}
+body.dark .footer-bottom{border-color:rgba(255,255,255,0.08)}
+body.dark .push-notif{background:#16162A;border-color:#2A2A3E}
+body.dark .urgent-banner{background:linear-gradient(135deg,#8B1A3A,#6B1020)}
+body.dark .category-header,body.dark .wishlist-header{background:#16162A}
+body.dark .filter-bar select,body.dark .filter-bar input{background:#1E1E2E;border-color:#2A2A3E;color:#E8E8F0}
+body.dark .chat-page{background:#0D0D1A}
+body.dark .chat-layout{background:#16162A}
+body.dark .chat-sidebar{background:#16162A;border-color:#2A2A3E}
+body.dark .chat-sidebar-header{border-color:#2A2A3E}
+body.dark .chat-search{background:#1E1E2E;border-color:#2A2A3E;color:#E8E8F0}
+body.dark .chat-item{border-color:#2A2A3E}
+body.dark .chat-item:hover{background:#1E1E2E}
+body.dark .chat-item.active{background:#2D1B2E}
+body.dark .chat-main{background:#1A1A2E}
+body.dark .chat-main-header{background:#16162A;border-color:#2A2A3E}
+body.dark .chat-messages{background:#1A1A2E}
+body.dark .message.received .msg-bubble{background:#16162A;color:#E8E8F0}
+body.dark .chat-input-area{background:#16162A;border-color:#2A2A3E}
+body.dark .chat-input-area textarea{background:#1E1E2E;border-color:#2A2A3E;color:#E8E8F0}
+body.dark .chat-page-header{background:#16162A;border-color:#2A2A3E}
+body.dark .chat-listing-ref{background:#1E1E2E;border-color:#2A2A3E}
+body.dark #profilePage>div>div{background:#16162A!important}
+body.dark .msg-date-divider{background:#2A2A3E;color:#A0A0B8}
+body.dark .lang-switcher{background:#2A2A3E}
+body.dark .lang-btn.active{background:#16162A}
+body.dark .section-link{color:var(--primary)}
+body.dark .seller-card{background:#1E1E2E}
+body.dark .consult-tags .tag{background:#1E1E2E}
+body.dark .chat-icon-btn{background:#2A2A3E;color:#A0A0B8}
+body.dark .photo-upload-zone{background:#2D1B2E;color:#E8E8F0}
+body.dark .photo-upload-zone:hover{background:#3D2040}
+body.dark .verify-step{background:#1E1E2E}
+body.dark .delete-confirm{background:#2D1010;border-color:#6B1010}
+body.dark .dark-toggle{background:#2A2A3E;color:#FFE66D}
+body.dark .mobile-bottom-nav{background:#16162A;border-color:#2A2A3E}
+body.dark .prof-card{background:#16162A}
+body.dark .prof-field input,body.dark .prof-field select{background:#1E1E2E;border-color:#2A2A3E;color:#E8E8F0}
+body.dark .prof-field input:focus,body.dark .prof-field select:focus{background:#16162A}
+body.dark .prof-listing-item{background:#1E1E2E}
+body.dark .prof-menu-row{border-color:#2A2A3E}
+body.dark .prof-hdr::after{background:#0D0D1A}
+body.dark #profilePage{background:#0D0D1A}
+body.dark .hdr-icon-btn{color:#A0A0B8}
+body.dark .hdr-icon-btn:hover{background:#2A2A3E;color:var(--primary)}
+
+/* DARK TOGGLE */
+.dark-toggle{width:40px;height:40px;border-radius:50%;background:var(--gray-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all 0.3s;color:var(--dark)}
+.dark-toggle:hover{background:var(--primary-light);color:var(--primary)}
+
+/* HEADER */
+.header{background:var(--white);box-shadow:var(--shadow);position:sticky;top:0;z-index:1000}
+.header-inner{max-width:1280px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.5rem;color:var(--primary);flex-shrink:0}
+.logo i{font-size:1.8rem}
+.search-bar{flex:1;max-width:500px;min-width:200px;position:relative}
+.search-bar input{width:100%;padding:12px 45px 12px 20px;border:2px solid var(--gray-light);border-radius:50px;font-size:0.95rem;transition:all 0.3s}
+.search-bar input:focus{outline:none;border-color:var(--primary)}
+.search-bar button{position:absolute;right:5px;top:50%;transform:translateY(-50%);background:var(--primary);color:var(--white);width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-links{display:flex;gap:8px}
+.nav-links a{padding:10px 18px;border-radius:50px;font-weight:500;font-size:0.9rem;transition:all 0.3s;cursor:pointer;color:var(--dark)}
+.nav-links a:hover{background:var(--primary-light);color:var(--primary)}
+.nav-links a.active{background:var(--primary);color:var(--white)!important}
+.header-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{padding:10px 24px;border-radius:50px;font-weight:600;font-size:0.9rem;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--primary);color:var(--white)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.btn-outline{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+.btn-outline:hover{background:var(--primary);color:var(--white)}
+.btn-lg{padding:14px 32px;font-size:1rem}
+.btn-sm{padding:8px 16px;font-size:0.85rem}
+.verified-badge{display:inline-flex;align-items:center;gap:4px;background:var(--success);color:var(--white);padding:2px 8px;border-radius:50px;font-size:0.7rem;font-weight:600}
+.auth-buttons{display:flex;gap:8px}
+.user-menu{display:none;align-items:center;gap:12px}
+.user-menu.active{display:flex}
+.user-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);cursor:pointer}
+.user-name{font-weight:600;font-size:0.9rem}
+.lang-switcher{display:flex;gap:4px;background:var(--gray-light);border-radius:50px;padding:3px}
+.lang-btn{padding:5px 12px;border-radius:50px;font-size:0.8rem;font-weight:600;background:transparent;color:var(--gray);transition:all 0.2s}
+.lang-btn.active{background:var(--white);color:var(--primary);box-shadow:0 1px 4px rgba(0,0,0,0.12)}
+.hdr-icon-btn{position:relative;width:40px;height:40px;border-radius:50%;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:1.1rem;transition:all 0.2s}
+.hdr-icon-btn:hover{background:var(--primary-light);color:var(--primary)}
+.hdr-badge{position:absolute;top:-2px;right:-2px;background:var(--primary);color:white;font-size:0.62rem;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px;border:2px solid var(--white)}
+.hdr-post-btn{padding:9px 18px!important;font-size:0.85rem!important;white-space:nowrap}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--primary-light) 0%,#FFF0F3 50%,var(--white) 100%);padding:60px 24px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,var(--primary-light) 0%,transparent 70%);opacity:0.5}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-content h1{font-size:3.2rem;font-weight:800;line-height:1.1;margin-bottom:20px}
+.hero-content h1 span{color:var(--primary)}
+.hero-content p{font-size:1.15rem;color:var(--gray);margin-bottom:32px;max-width:480px}
+.hero-stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-item .num{font-size:2rem;font-weight:800;color:var(--primary)}
+.stat-item .label{font-size:0.85rem;color:var(--gray)}
+.hero-visual{position:relative;min-height:320px}
+.hero-card{background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-hover);position:absolute;cursor:pointer}
+.hero-card-1{top:0;right:0;width:220px;animation:float 3s ease-in-out infinite}
+.hero-card-2{bottom:40px;left:0;width:200px;animation:float 3s ease-in-out infinite 0.5s}
+.hero-card-3{top:50%;right:20px;width:180px;animation:float 3s ease-in-out infinite 1s}
+.hero-card img{width:100%;height:120px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:10px}
+.hero-card .price{font-weight:700;color:var(--primary);font-size:1.1rem}
+.hero-card .title{font-size:0.85rem;color:var(--gray)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+
+/* TABS */
+.section-tabs{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;gap:8px;margin-top:-30px;position:relative;z-index:10;flex-wrap:wrap}
+.tab-btn{padding:14px 28px;background:var(--white);border-radius:var(--radius-sm);font-weight:600;font-size:0.95rem;box-shadow:var(--shadow);transition:all 0.3s;display:flex;align-items:center;gap:8px}
+.tab-btn:hover{transform:translateY(-2px)}
+.tab-btn.active{background:var(--primary);color:var(--white)}
+
+/* MAIN */
+.main-content{max-width:1280px;margin:0 auto;padding:40px 24px}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:10px}
+.section-title{font-size:1.5rem;font-weight:700}
+.section-link{color:var(--primary);font-weight:600;font-size:0.9rem;cursor:pointer}
+
+/* CATEGORIES */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:16px}
+.cat-card{background:var(--white);border-radius:var(--radius);padding:24px 16px;text-align:center;box-shadow:var(--shadow);transition:all 0.3s;cursor:pointer}
+.cat-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+.cat-card .icon{width:56px;height:56px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.cat-card:nth-child(1) .icon{background:#FFE4E9;color:var(--primary)}
+.cat-card:nth-child(2) .icon{background:#E8F8F5;color:var(--secondary)}
+.cat-card:nth-child(3) .icon{background:#FFF9E6;color:#F39C12}
+.cat-card:nth-child(4) .icon{background:#EBF5FB;color:#3498DB}
+.cat-card:nth-child(5) .icon{background:#F5EEF8;color:#9B59B6}
+.cat-card:nth-child(6) .icon{background:#FEF5E7;color:#E67E22}
+.cat-card:nth-child(7) .icon{background:#EAFAF1;color:#27AE60}
+.cat-card:nth-child(8) .icon{background:#FADBD8;color:#E74C3C}
+.cat-card h4{font-size:0.9rem;font-weight:600;margin-bottom:4px}
+.cat-card span{font-size:0.75rem;color:var(--gray)}
+
+/* LISTINGS */
+.listings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.listing-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all 0.3s;cursor:pointer}
+.listing-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+.listing-img{position:relative;height:220px;overflow:hidden}
+.listing-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.listing-card:hover .listing-img img{transform:scale(1.05)}
+.listing-badge{position:absolute;top:12px;left:12px;padding:6px 12px;border-radius:50px;font-size:0.75rem;font-weight:600}
+.badge-new{background:var(--success);color:var(--white)}
+.badge-free{background:var(--accent);color:var(--dark)}
+.badge-swap{background:var(--secondary);color:var(--white)}
+.badge-rent{background:#74B9FF;color:var(--white)}
+.listing-fav{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:all 0.3s;border:none;cursor:pointer}
+.listing-fav:hover,.listing-fav.active{background:var(--primary);color:var(--white)}
+.listing-body{padding:16px}
+.listing-price{font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:6px}
+.listing-price .old{font-size:0.9rem;color:var(--gray);text-decoration:line-through;font-weight:400;margin-left:8px}
+.listing-title{font-size:0.95rem;font-weight:600;margin-bottom:8px;line-height:1.4}
+.listing-meta{display:flex;gap:12px;font-size:0.8rem;color:var(--gray);margin-bottom:12px;flex-wrap:wrap}
+.listing-meta i{margin-right:4px}
+.listing-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--gray-light)}
+.seller{display:flex;align-items:center;gap:8px;min-width:0}
+.seller-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.seller-name{font-size:0.85rem;font-weight:600}
+.seller-rating{font-size:0.75rem;color:var(--gray)}
+.listing-age{display:inline-block;background:var(--primary-light);color:var(--primary);padding:3px 10px;border-radius:50px;font-size:0.75rem;font-weight:600;margin-bottom:10px}
+
+/* CONSULTATIONS */
+.consult-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-bottom:40px}
+.consult-card{background:var(--white);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:all 0.3s}
+.consult-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.consult-card.pediatric{border-top:4px solid #3498DB}
+.consult-card.gv{border-top:4px solid var(--primary)}
+.consult-card.sleep{border-top:4px solid #9B59B6}
+.consult-card.psycho{border-top:4px solid var(--secondary)}
+.consult-header{display:flex;gap:16px;margin-bottom:16px;align-items:center}
+.consult-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.consult-info h4{font-size:1rem;margin-bottom:4px}
+.consult-info .spec{font-size:0.85rem;color:var(--primary);font-weight:600}
+.consult-info .exp{font-size:0.8rem;color:var(--gray)}
+.consult-stats{display:flex;gap:12px;font-size:0.8rem;color:var(--gray);margin-bottom:12px;flex-wrap:wrap}
+.consult-price{font-size:1.2rem;font-weight:700;margin-bottom:12px}
+.consult-price span{font-size:0.85rem;color:var(--gray);font-weight:400}
+.consult-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tag{background:var(--gray-light);padding:4px 10px;border-radius:50px;font-size:0.75rem}
+.consult-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* URGENT */
+.urgent-banner{background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius);padding:40px;color:var(--white);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin:40px 0;cursor:pointer}
+.urgent-banner h3{font-size:1.5rem;margin-bottom:12px}
+.urgent-banner p{opacity:0.9;margin-bottom:20px}
+.urgent-banner .btn{background:var(--white);color:var(--primary)}
+.urgent-items{display:flex;gap:24px}
+.urgent-item{text-align:center;font-size:0.85rem}
+.urgent-item i{font-size:2rem;display:block;margin-bottom:8px}
+
+/* FEATURES */
+.features{margin:40px 0}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px}
+.feature-card{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);text-align:center}
+.feature-card .icon{width:64px;height:64px;border-radius:50%;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 16px}
+.feature-card h4{font-size:1rem;margin-bottom:8px}
+.feature-card p{font-size:0.85rem;color:var(--gray)}
+
+/* FOOTER */
+.footer{background:var(--dark);color:var(--white);padding:60px 0 0;margin-top:60px}
+.footer-inner{max-width:1280px;margin:0 auto;padding:0 24px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand p{color:rgba(255,255,255,0.6);font-size:0.9rem;margin:16px 0}
+.footer-social{display:flex;gap:12px}
+.footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s}
+.footer-social a:hover{background:var(--primary)}
+.footer h5{font-size:1rem;margin-bottom:16px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:8px}
+.footer-links a{color:rgba(255,255,255,0.6);font-size:0.9rem;cursor:pointer;transition:color 0.3s}
+.footer-links a:hover{color:var(--primary)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding:20px 0;display:flex;justify-content:space-between;font-size:0.85rem;color:rgba(255,255,255,0.5);flex-wrap:wrap;gap:10px}
+
+/* MODALS */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.modal-overlay.active{opacity:1;pointer-events:all}
+.modal{background:var(--white);border-radius:var(--radius);width:100%;max-width:500px;max-height:92vh;overflow-y:auto;transform:scale(0.95);transition:transform 0.3s}
+.modal-overlay.active .modal{transform:scale(1)}
+.modal.wide{max-width:900px}
+.modal-header{padding:24px;border-bottom:1px solid var(--gray-light);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--white);z-index:1}
+.modal-header h3{font-size:1.2rem}
+.modal-close{width:36px;height:36px;border-radius:50%;background:var(--gray-light);display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--primary);color:var(--white)}
+.modal-body{padding:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:0.9rem;font-weight:600;margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:2px solid var(--gray-light);border-radius:var(--radius-sm);font-size:0.95rem;font-family:inherit;transition:all 0.3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--primary)}
+.form-group textarea{min-height:100px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.auth-tabs{display:flex;border-bottom:2px solid var(--gray-light);margin-bottom:24px}
+.auth-tab{flex:1;text-align:center;padding:12px;font-weight:600;cursor:pointer;transition:all 0.3s;border-bottom:2px solid transparent;margin-bottom:-2px}
+.auth-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+.divider{text-align:center;position:relative;margin:20px 0}
+.divider::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--gray-light)}
+.divider span{background:var(--white);padding:0 12px;position:relative;color:var(--gray);font-size:0.85rem}
+.social-auth{display:flex;gap:8px}
+.social-btn{flex:1;padding:12px;border:2px solid var(--gray-light);border-radius:var(--radius-sm);font-weight:600;font-size:0.9rem;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.3s;background:var(--white)}
+.social-btn:hover{border-color:var(--primary);color:var(--primary)}
+
+/* PHOTO UPLOAD */
+.photo-upload-zone{border:2px dashed var(--primary);border-radius:var(--radius);padding:32px 20px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--primary-light);color:var(--dark)}
+.photo-upload-zone:hover,.photo-upload-zone.drag-over{background:#ffd6de;border-color:var(--primary-dark);transform:scale(1.01)}
+.photo-preview-item{position:relative;aspect-ratio:1;border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.photo-preview-item img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-preview-item .remove-photo{position:absolute;top:4px;right:4px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,0.65);color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.7rem}
+.photo-preview-item .remove-photo:hover{background:#e74c3c}
+.photo-preview-item.main-photo::after{content:'★';position:absolute;bottom:4px;left:4px;background:var(--primary);color:white;font-size:0.65rem;padding:2px 6px;border-radius:4px}
+
+/* VERIFY */
+.verify-steps{display:flex;flex-direction:column;gap:16px}
+.verify-step{display:flex;align-items:center;gap:16px;padding:16px;background:var(--gray-light);border-radius:var(--radius-sm)}
+
+/* CHAT */
+.chat-page{position:fixed;inset:0;background:#f0f2f5;z-index:1800;display:flex;flex-direction:column}
+.chat-page-header{background:var(--white);border-bottom:1px solid #e0e0e0;padding:0 16px;height:56px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.chat-page-close{margin-left:auto;width:36px;height:36px;border-radius:50%;background:var(--gray-light);display:flex;align-items:center;justify-content:center;cursor:pointer;border:none}
+.chat-layout{display:flex;flex:1;overflow:hidden;max-width:1100px;width:100%;margin:20px auto;background:var(--white);border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.1)}
+.chat-sidebar{width:320px;flex-shrink:0;border-right:1px solid #e8e8e8;display:flex;flex-direction:column;background:var(--white)}
+.chat-sidebar-header{padding:16px;border-bottom:1px solid #e8e8e8}
+.chat-sidebar-header h3{font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.chat-search{width:100%;padding:8px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:0.88rem;font-family:inherit}
+.chat-search:focus{outline:none;border-color:var(--primary)}
+.chat-list{overflow-y:auto;flex:1}
+.chat-item{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;border-bottom:1px solid #f5f5f5;transition:background 0.15s;position:relative}
+.chat-item:hover{background:#fafafa}
+.chat-item.active{background:#fff0f3;border-left:3px solid var(--primary)}
+.chat-item-avatar{position:relative;flex-shrink:0}
+.chat-item-avatar img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.chat-item-body{flex:1;min-width:0}
+.chat-item-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.chat-item-name{font-size:0.9rem;font-weight:600}
+.chat-item-time{font-size:0.72rem;color:var(--gray)}
+.chat-item-preview{font-size:0.82rem;color:var(--gray);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.chat-empty-state{padding:40px 20px;text-align:center;color:var(--gray)}
+.chat-empty-state i{font-size:3rem;display:block;margin-bottom:12px;opacity:0.25}
+.chat-main{flex:1;display:flex;flex-direction:column;min-width:0;background:#f8f9fa}
+.chat-main-header{background:var(--white);border-bottom:1px solid #e8e8e8;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.chat-main-header-avatar img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.chat-main-header-info{flex:1}
+.chat-main-header-info h4{font-size:0.95rem;font-weight:600}
+.chat-main-header-info p{font-size:0.78rem}
+.chat-main-header-actions{display:flex;gap:6px}
+.chat-icon-btn{width:36px;height:36px;border-radius:50%;background:var(--gray-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all 0.2s}
+.chat-icon-btn:hover{background:var(--primary-light);color:var(--primary)}
+.chat-icon-btn.danger:hover{background:#fde8e8;color:#e74c3c}
+.chat-back-btn{display:none;background:none;border:none;color:var(--gray);font-size:1.1rem;padding:4px 8px;cursor:pointer}
+.chat-listing-ref{background:var(--white);border:1.5px solid #e8e8e8;border-radius:10px;margin:12px 16px 0;padding:10px 14px;display:flex;gap:12px;align-items:center}
+.chat-listing-ref img{width:52px;height:52px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.chat-listing-ref-info{flex:1;min-width:0}
+.chat-listing-ref-title{font-size:0.85rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chat-listing-ref-price{font-size:0.9rem;font-weight:700;color:var(--primary)}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:8px}
+.msg-date-divider{text-align:center;font-size:0.75rem;color:var(--gray);background:#e8e8e8;border-radius:12px;padding:3px 12px;align-self:center;margin:8px 0}
+.message{max-width:68%;display:flex;flex-direction:column}
+.message.sent{align-self:flex-end;align-items:flex-end}
+.message.received{align-self:flex-start;align-items:flex-start}
+.msg-bubble{padding:10px 14px;border-radius:18px;font-size:0.9rem;line-height:1.5;word-break:break-word}
+.message.sent .msg-bubble{background:var(--primary);color:white;border-bottom-right-radius:4px}
+.message.received .msg-bubble{background:var(--white);border-bottom-left-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.msg-meta{display:flex;align-items:center;gap:4px;margin-top:3px;font-size:0.7rem;color:var(--gray)}
+.message.sent .msg-meta{flex-direction:row-reverse}
+.msg-status{color:var(--primary)}
+.chat-input-area{background:var(--white);border-top:1px solid #e8e8e8;padding:12px 16px;display:flex;gap:10px;align-items:flex-end;flex-shrink:0}
+.chat-input-area textarea{flex:1;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:22px;font-size:0.92rem;font-family:inherit;resize:none;max-height:100px;min-height:44px;line-height:1.5;transition:border-color 0.2s}
+.chat-input-area textarea:focus{outline:none;border-color:var(--primary)}
+.chat-send-btn{width:44px;height:44px;border-radius:50%;background:var(--primary);color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s}
+.chat-send-btn:hover{background:var(--primary-dark);transform:scale(1.05)}
+.chat-no-conv{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gray);text-align:center;padding:40px}
+.chat-no-conv i{font-size:4rem;margin-bottom:16px;opacity:0.2}
+.delete-confirm{background:#fff0f0;border:1.5px solid #fca5a5;border-radius:10px;padding:12px 16px;margin:8px 16px;display:flex;align-items:center;gap:12px;font-size:0.88rem}
+
+/* PRODUCT DETAIL */
+.product-detail{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.product-images img{width:100%;border-radius:var(--radius);height:380px;object-fit:cover}
+.product-images .thumbs{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.product-images .thumbs img{width:80px;height:80px;border-radius:var(--radius-sm);object-fit:cover;cursor:pointer;border:2px solid transparent}
+.product-images .thumbs img.active{border-color:var(--primary)}
+.product-info h2{font-size:1.6rem;margin-bottom:8px}
+.product-info .price{font-size:1.8rem;font-weight:800;color:var(--primary);margin-bottom:16px}
+.product-info .price .old{font-size:1.1rem;color:var(--gray);text-decoration:line-through;font-weight:400;margin-left:12px}
+.product-meta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:20px;font-size:0.9rem;color:var(--gray)}
+.product-meta span{display:flex;align-items:center;gap:6px}
+.product-desc{margin-bottom:24px;line-height:1.7}
+.product-actions{display:flex;gap:10px;flex-wrap:wrap}
+.product-actions .btn{flex:1;min-width:140px;justify-content:center}
+.seller-card{background:var(--gray-light);border-radius:var(--radius);padding:16px 20px;margin-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.seller-card img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+
+/* CATEGORY & WISHLIST */
+.category-header,.wishlist-header{background:var(--white);padding:28px 24px;margin-bottom:28px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.category-header h2,.wishlist-header h2{font-size:1.6rem;margin-bottom:16px}
+.wishlist-header{text-align:center}
+.wishlist-header p{color:var(--gray)}
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-bar select,.filter-bar input{padding:10px 14px;border:2px solid var(--gray-light);border-radius:var(--radius-sm);font-size:0.9rem;background:var(--white);font-family:inherit}
+.filter-bar select:focus,.filter-bar input:focus{outline:none;border-color:var(--primary)}
+
+/* MOBILE MENU */
+.mobile-menu-btn{display:none;background:none;font-size:1.5rem;padding:4px}
+.mobile-menu{position:fixed;inset:0;background:var(--white);z-index:1500;padding:80px 24px 24px;transform:translateX(100%);transition:transform 0.3s;overflow-y:auto}
+.mobile-menu.active{transform:translateX(0)}
+.mobile-menu a{display:block;padding:16px;font-size:1.1rem;font-weight:600;border-bottom:1px solid var(--gray-light);cursor:pointer}
+.mobile-menu-close{position:absolute;top:24px;right:24px;background:none;font-size:1.5rem}
+.mobile-lang{display:none}
+
+/* TOAST & PUSH */
+.toast{position:fixed;bottom:24px;right:24px;background:var(--dark);color:var(--white);padding:14px 20px;border-radius:var(--radius-sm);box-shadow:var(--shadow-hover);z-index:3000;transform:translateY(100px);opacity:0;transition:all 0.3s;display:flex;align-items:center;gap:10px;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:var(--success)}
+.toast.error{background:#E74C3C}
+.push-notif{position:fixed;top:80px;right:24px;background:var(--white);padding:14px 18px;border-radius:var(--radius-sm);box-shadow:var(--shadow-hover);z-index:3000;transform:translateX(420px);opacity:0;transition:all 0.5s;display:flex;align-items:center;gap:12px;max-width:320px;border-left:4px solid var(--primary)}
+.push-notif.show{transform:translateX(0);opacity:1}
+.push-notif img{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.push-notif-content h5{font-size:0.9rem;margin-bottom:2px}
+.push-notif-content p{font-size:0.8rem;color:var(--gray)}
+
+/* ANIMATIONS */
+.fade-in{animation:fadeIn 0.6s ease forwards;opacity:0}
+@keyframes fadeIn{to{opacity:1}}
+.stagger-1{animation-delay:0.1s}
+.stagger-2{animation-delay:0.2s}
+.stagger-3{animation-delay:0.3s}
+.stagger-4{animation-delay:0.4s}
+
+/* MOBILE BOTTOM NAV */
+.mobile-bottom-nav{display:none!important}
+@media(max-width:768px){
+.mobile-bottom-nav{display:flex!important;position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--white);border-top:1px solid var(--gray-light);box-shadow:0 -4px 20px rgba(0,0,0,0.08);padding:8px 0 max(8px,env(safe-area-inset-bottom))}
+.mbn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:0.62rem;font-weight:600;color:var(--gray);cursor:pointer;padding:4px 0;transition:color 0.2s;border:none;background:none;font-family:inherit}
+.mbn-item i{font-size:1.2rem}
+.mbn-item.active{color:var(--primary)}
+.mbn-item .dot{position:absolute;top:-2px;right:-6px;width:8px;height:8px;border-radius:50%;background:var(--primary);border:2px solid white;display:none}
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.hero-inner{grid-template-columns:1fr;text-align:center}
+.hero-content p{margin:0 auto 32px}
+.hero-stats{justify-content:center}
+.hero-visual{display:none}
+.features-grid{grid-template-columns:repeat(2,1fr)}
+.footer-grid{grid-template-columns:1fr 1fr}
+.product-detail{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+.header-inner{padding:8px 12px;flex-wrap:nowrap;gap:6px}
+.search-bar,.nav-links{display:none}
+.mobile-menu-btn{display:block}
+.lang-switcher{display:none!important}
+.mobile-lang{display:flex!important;margin:12px 0}
+.dark-toggle,.hdr-icon-btn{width:36px;height:36px}
+.hdr-post-btn{padding:8px 12px!important;font-size:0.8rem!important}
+.user-name,.auth-buttons{display:none!important}
+.header-actions{gap:2px}
+.hero{padding:32px 16px 40px}
+.hero-content h1{font-size:1.8rem}
+.hero-stats{gap:20px}
+.section-tabs{padding:0 12px;margin-top:-10px;gap:6px;overflow-x:auto;flex-wrap:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.section-tabs::-webkit-scrollbar{display:none}
+.tab-btn{padding:10px 16px;font-size:0.85rem;flex-shrink:0;white-space:nowrap}
+.main-content{padding:20px 14px}
+.section-title{font-size:1.25rem}
+.cat-grid{grid-template-columns:repeat(4,1fr);gap:8px}
+.cat-card{padding:14px 8px}
+.cat-card .icon{width:40px;height:40px;font-size:1.1rem;margin-bottom:8px}
+.cat-card h4{font-size:0.78rem}
+.cat-card span{display:none}
+.listings-grid{grid-template-columns:1fr 1fr;gap:12px}
+.listing-img{height:160px}
+.listing-body{padding:10px}
+.listing-price{font-size:1rem}
+.listing-title{font-size:0.82rem}
+.listing-meta{display:none}
+.consult-grid{grid-template-columns:1fr}
+.features-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr;gap:24px}
+.footer-bottom{flex-direction:column;text-align:center}
+.form-row{grid-template-columns:1fr}
+.urgent-banner{grid-template-columns:1fr;text-align:center;gap:16px;padding:20px 16px}
+.urgent-items{justify-content:center;flex-wrap:wrap;gap:12px}
+.modal-overlay{align-items:flex-end;padding:0}
+.modal{border-radius:20px 20px 0 0;max-height:92vh;max-width:100%}
+.modal.wide{max-width:100%;border-radius:20px 20px 0 0;max-height:95vh}
+.modal-overlay.active .modal{transform:none}
+.product-detail{gap:16px}
+.product-images img{height:260px}
+.toast{bottom:16px;right:12px;left:12px;max-width:100%}
+.push-notif{right:12px;left:12px;max-width:100%;top:70px}
+.chat-layout{margin:0;border-radius:0;height:100%}
+.chat-sidebar{position:absolute;left:0;top:0;bottom:0;width:100%;z-index:3;transition:transform 0.3s;background:white}
+.chat-sidebar.slide-out{transform:translateX(-100%)}
+.chat-back-btn{display:block!important}
+.chat-close-big{display:flex}
+.chat-page-header{padding:0 12px}
+}
+@media(max-width:480px){
+.hero-content h1{font-size:1.45rem}
+.hero-content p{font-size:0.9rem}
+.section-tabs{padding:0 10px}
+.main-content{padding:16px 10px}
+.cat-grid{grid-template-columns:repeat(4,1fr);gap:6px}
+.cat-card{padding:10px 4px;border-radius:12px}
+.cat-card .icon{width:36px;height:36px;font-size:1rem;margin-bottom:6px}
+.cat-card h4{font-size:0.7rem}
+.listings-grid{grid-template-columns:1fr 1fr;gap:8px}
+.listing-img{height:140px}
+.listing-body{padding:8px}
+.listing-price{font-size:0.95rem}
+.features-grid{grid-template-columns:1fr}
+.product-images img{height:220px}
+.modal-body,.modal-header{padding:16px}
+.prof-2col,.prof-quick{grid-template-columns:1fr}
+}
+
+/* CHAT BIG BACK BUTTON */
+.chat-close-big{display:none;width:40px;height:40px;border-radius:50%;background:var(--gray-light);border:none;cursor:pointer;align-items:center;justify-content:center;font-size:1rem;color:var(--dark);flex-shrink:0}
+.chat-close-big:hover{background:var(--primary-light);color:var(--primary)}
+
+/* PROFILE PAGE */
+.prof-hdr{background:linear-gradient(135deg,var(--primary) 0%,#c44569 100%);padding:0 0 72px;position:relative}
+.prof-hdr::after{content:'';position:absolute;bottom:0;left:0;right:0;height:56px;background:var(--gray-light);border-radius:24px 24px 0 0}
+.prof-back-btn{position:absolute;top:16px;left:16px;z-index:2;background:rgba(255,255,255,0.22);border:none;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:white;font-size:1.1rem}
+.prof-back-btn:hover{background:rgba(255,255,255,0.38)}
+.prof-av-wrap{position:relative;display:inline-block}
+.prof-av-wrap img,.prof-initials-big{width:96px;height:96px;border-radius:50%;border:4px solid white;box-shadow:0 4px 20px rgba(0,0,0,0.2);object-fit:cover}
+.prof-initials-big{background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:800}
+.prof-cam-btn{position:absolute;bottom:2px;right:2px;width:30px;height:30px;border-radius:50%;background:white;color:var(--primary);border:2px solid var(--primary);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.8rem}
+.prof-cam-btn:hover{background:var(--primary);color:white}
+.prof-card{background:white;border-radius:16px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,0.07);margin-bottom:14px}
+.prof-stat{text-align:center;flex:1;padding:8px 4px}
+.prof-stat .snum{font-size:1.5rem;font-weight:800;color:var(--primary);line-height:1}
+.prof-stat .slbl{font-size:0.72rem;color:var(--gray);margin-top:4px}
+.prof-divider{width:1px;background:var(--gray-light);align-self:stretch;margin:4px 0}
+.prof-sec{font-size:0.75rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px}
+.prof-field{margin-bottom:13px}
+.prof-field label{display:block;font-size:0.82rem;font-weight:600;color:var(--dark);margin-bottom:5px}
+.prof-field input,.prof-field select{width:100%;padding:11px 14px;border:1.5px solid var(--gray-light);border-radius:10px;font-size:0.9rem;font-family:inherit;background:var(--gray-light);transition:border-color 0.2s}
+.prof-field input:focus,.prof-field select:focus{outline:none;border-color:var(--primary);background:white}
+.prof-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.prof-btn-p{width:100%;padding:13px;background:var(--primary);color:white;border:none;border-radius:12px;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:inherit;margin-top:6px;transition:background 0.2s}
+.prof-btn-p:hover{background:var(--primary-dark)}
+.prof-btn-o{width:100%;padding:12px;background:transparent;color:var(--primary);border:2px solid var(--primary);border-radius:12px;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:inherit;margin-top:6px}
+.prof-btn-o:hover{background:var(--primary-light)}
+.prof-quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.prof-quick-btn{padding:14px 10px;border:none;border-radius:12px;cursor:pointer;font-weight:700;font-size:0.85rem;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity 0.15s}
+.prof-quick-btn:hover{opacity:0.85}
+.prof-menu-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--gray-light);cursor:pointer}
+.prof-menu-row:last-child{border:none}
+.prof-menu-row:hover{opacity:0.75}
+.prof-menu-ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0}
+.prof-listing-item{background:var(--gray-light);border-radius:13px;overflow:hidden;cursor:pointer;transition:transform 0.18s;position:relative}
+.prof-listing-item:hover{transform:translateY(-3px)}
+.prof-listing-item img{width:100%;height:130px;object-fit:cover;display:block}
+.prof-listing-item .pdel{position:absolute;top:7px;right:7px;width:26px;height:26px;border-radius:50%;background:rgba(231,76,60,0.9);color:white;border:none;cursor:pointer;font-size:0.7rem;display:flex;align-items:center;justify-content:center}
+.prof-listing-item .pdel:hover{background:#c0392b}
+
+/* ADMIN PANEL */
+body.dark .admin-page{background:#0D0D1A;color:#E8E8F0}
+body.dark .admin-shell,body.dark .admin-card,body.dark .admin-table-wrap,body.dark .admin-login-note{background:#16162A;border-color:#2A2A3E}
+body.dark .admin-table th{background:#1E1E2E;color:#A0A0B8}
+body.dark .admin-table td{border-color:#2A2A3E}
+body.dark .admin-filter input{background:#1E1E2E;border-color:#2A2A3E;color:#E8E8F0}
+.admin-entry-btn{background:#2D3436!important;color:#fff!important;border:0!important}
+.admin-page{position:fixed;inset:0;z-index:1900;background:var(--gray-light);display:none;overflow:auto;color:var(--dark)}
+.admin-topbar{height:64px;background:var(--white);box-shadow:var(--shadow);display:flex;align-items:center;gap:14px;padding:0 20px;position:sticky;top:0;z-index:2}
+.admin-topbar h2{font-size:1.05rem;margin:0;display:flex;align-items:center;gap:10px}
+.admin-shell{max-width:1180px;margin:24px auto;padding:0 20px 30px}
+.admin-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
+.admin-card{background:var(--white);border:1px solid transparent;border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+.admin-card .admin-num{font-size:1.8rem;font-weight:800;color:var(--primary);line-height:1.1}
+.admin-card .admin-label{font-size:0.82rem;color:var(--gray);margin-top:6px}
+.admin-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}
+.admin-tab{padding:10px 16px;border-radius:999px;background:var(--white);box-shadow:var(--shadow);font-weight:700;color:var(--gray)}
+.admin-tab.active{background:var(--primary);color:#fff}
+.admin-panel{display:none}
+.admin-panel.active{display:block}
+.admin-toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}
+.admin-filter input{min-width:260px;padding:10px 14px;border:2px solid var(--gray-light);border-radius:10px;font-family:inherit}
+.admin-table-wrap{background:var(--white);border-radius:12px;box-shadow:var(--shadow);overflow:auto;border:1px solid transparent}
+.admin-table{width:100%;border-collapse:collapse;min-width:760px}
+.admin-table th,.admin-table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--gray-light);vertical-align:middle;font-size:0.88rem}
+.admin-table th{background:#fafafa;color:var(--gray);font-size:0.76rem;text-transform:uppercase;letter-spacing:.04em}
+.admin-table tr:last-child td{border-bottom:0}
+.admin-thumb{width:54px;height:44px;object-fit:cover;border-radius:8px;background:var(--gray-light)}
+.admin-actions{display:flex;gap:6px;flex-wrap:wrap}
+.admin-danger{background:#e74c3c!important;color:#fff!important;border-color:#e74c3c!important}
+.admin-muted{color:var(--gray);font-size:0.82rem}
+.admin-login-note{background:var(--primary-light);border:1px solid #ffd3dc;border-radius:10px;padding:12px;margin-bottom:16px;color:var(--dark);font-size:0.88rem}
+@media(max-width:800px){.admin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-shell{margin:16px auto;padding:0 12px 24px}.admin-topbar{height:auto;min-height:58px;flex-wrap:wrap;padding:10px 12px}.admin-filter input{min-width:100%;width:100%}}
+@media(max-width:520px){.admin-grid{grid-template-columns:1fr}.admin-card{padding:14px}.admin-tab{flex:1;justify-content:center}.admin-table{min-width:680px}}
+
+/* MOBILE HEADER CLEANUP */
+@media(max-width:768px){
+  .header{position:sticky;top:0}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;padding:10px 12px;min-height:58px}
+  .logo{font-size:1.12rem;gap:6px;min-width:0;flex:0 1 auto}
+  .logo i{font-size:1.35rem}
+  .logo-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .search-bar,.nav-links{display:none!important}
+  .header-actions{margin-left:auto;display:flex;align-items:center;justify-content:flex-end;gap:6px;flex:0 0 auto;flex-wrap:nowrap}
+  .header-actions .lang-switcher,
+  .header-actions .dark-toggle,
+  .header-actions .auth-buttons,
+  .header-actions .user-menu,
+  .header-actions .hdr-post-btn,
+  .header-actions .admin-entry-btn{display:none!important}
+  .hdr-icon-btn{width:36px;height:36px;min-width:36px;flex:0 0 36px;font-size:1rem}
+  .hdr-badge{top:-3px;right:-3px}
+  .mobile-menu-btn{display:flex!important;align-items:center;justify-content:center;width:38px;height:38px;min-width:38px;border-radius:50%;background:var(--gray-light);color:var(--dark);font-size:1.15rem;flex:0 0 38px}
+  .mobile-bottom-nav{display:none!important;visibility:hidden!important;pointer-events:none!important}
+  body{padding-bottom:0!important}
+}
+@media(max-width:360px){
+  .logo{font-size:1rem}
+  .logo i{font-size:1.22rem}
+  .header-actions{gap:4px}
+  .hdr-icon-btn{width:34px;height:34px;min-width:34px;flex-basis:34px}
+  .mobile-menu-btn{width:36px;height:36px;min-width:36px;flex-basis:36px}
+}
+</style>
+</head>
+<body>
+
+<div class="push-notif" id="pushNotif">
+  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" alt="">
+  <div class="push-notif-content">
+    <h5 id="pushNotifTitle">Жаңа хабарлама</h5>
+    <p id="pushNotifText">Айгүл: Коляска әлі бар ма?</p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="alert"><i class="fas fa-check-circle"></i><span id="toastMsg">Сақталды!</span></div>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" onclick="showHome();setMbn(0)" style="cursor:pointer"><i class="fas fa-baby"></i><span class="logo-text"> МамаМаркет</span></a>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Іздеу: коляска, комбинезон..." onkeypress="if(event.key==='Enter')doSearch()">
+      <button onclick="doSearch()"><i class="fas fa-search"></i></button>
+    </div>
+    <nav class="nav-links">
+      <a class="active" onclick="showHome()" data-i18n="nav_listings">Хабарландырулар</a>
+      <a onclick="scrollToSection('consult')" data-i18n="nav_consult">Кеңестер</a>
+      <a onclick="showFreeItems()" data-i18n="nav_free">Тегін беремін</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('kk')" id="langKK">ҚАЗ</button>
+        <button class="lang-btn" onclick="setLang('ru')" id="langRU">РУС</button>
+      </div>
+      <button class="dark-toggle" onclick="toggleDark()" id="darkToggleBtn"><i class="fas fa-moon" id="darkIcon"></i></button>
+      <button class="hdr-icon-btn" onclick="openChatModal()">
+        <i class="fas fa-comment"></i>
+        <span class="hdr-badge" id="chatBadge" style="display:none">0</span>
+      </button>
+      <button class="hdr-icon-btn" onclick="showWishlist()">
+        <i class="fas fa-heart"></i>
+        <span class="hdr-badge" id="wishlistBadge" style="display:none">0</span>
+      </button>
+      <div class="auth-buttons" id="authButtons">
+        <button class="btn btn-outline btn-sm" onclick="openModal('loginModal')" data-i18n="btn_login">Кіру</button>
+        <button class="btn btn-primary btn-sm" onclick="openModal('registerModal')" data-i18n="btn_register">Тіркелу</button>
+      </div>
+      <div class="user-menu" id="userMenu">
+        <img src="" alt="" class="user-avatar" onclick="openProfilePage()" style="display:none" id="headerAvatarImg">
+        <span class="user-name" id="userNameDisplay" style="cursor:pointer" onclick="openProfilePage()"></span>
+      </div>
+      <button class="btn btn-primary btn-sm hdr-post-btn" onclick="checkAuthAndOpenAdd()">
+        <i class="fas fa-plus"></i> <span data-i18n="btn_post">Жариялау</span>
+      </button>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+  <div class="mobile-lang lang-switcher">
+    <button class="lang-btn active" onclick="setLang('kk');toggleMobileMenu()" id="langKKMob">ҚАЗ</button>
+    <button class="lang-btn" onclick="setLang('ru');toggleMobileMenu()" id="langRUMob">РУС</button>
+  </div>
+  <div style="padding:12px 0">
+    <button class="dark-toggle" onclick="toggleDark()" style="width:auto;padding:8px 20px;border-radius:50px;gap:8px;display:flex;align-items:center">
+      <i class="fas fa-moon" id="darkIconMob"></i> <span id="darkLabelMob">Dark mode</span>
+    </button>
+  </div>
+  <a onclick="showHome();toggleMobileMenu()" data-i18n="nav_listings">Хабарландырулар</a>
+  <a onclick="scrollToSection('consult');toggleMobileMenu()" data-i18n="nav_consult">Кеңестер</a>
+  <a onclick="showFreeItems();toggleMobileMenu()" data-i18n="nav_free">Тегін беремін</a>
+  <a onclick="showWishlist();toggleMobileMenu()" data-i18n="nav_wishlist">Тілектер тізімі</a>
+  <a onclick="openChatModal();toggleMobileMenu()" data-i18n="nav_messages">Хабарламалар</a>
+  <a onclick="openModal('loginModal');toggleMobileMenu()" data-i18n="btn_login">Кіру</a>
+  <a onclick="openModal('registerModal');toggleMobileMenu()" data-i18n="btn_register">Тіркелу</a>
+  <button class="btn btn-primary" style="width:100%;margin-top:20px;justify-content:center" onclick="checkAuthAndOpenAdd();toggleMobileMenu()">
+    <i class="fas fa-plus"></i> <span data-i18n="btn_post_full">Хабарландыру жариялау</span>
+  </button>
+</div>
+
+<section class="hero" id="heroSection">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <h1 data-i18n="hero_title">Ана мен балаға <span>керек барлығы</span><br>бір жерде</h1>
+      <p data-i18n="hero_subtitle">Балалар заттарын сатып алыңыз, айырбастаңыз немесе тегін алыңыз.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn btn-primary btn-lg" onclick="scrollToSection('listings')"><i class="fas fa-search"></i> <span data-i18n="hero_btn1">Заттарды табу</span></button>
+        <button class="btn btn-outline btn-lg" onclick="scrollToSection('consult')"><i class="fas fa-user-md"></i> <span data-i18n="hero_btn2">Кеңес алу</span></button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="num">12 450</div><div class="label" data-i18n="stat1">Белсенді хабарландыру</div></div>
+        <div class="stat-item"><div class="num">340</div><div class="label" data-i18n="stat2">Маман</div></div>
+        <div class="stat-item"><div class="num">89 200</div><div class="label" data-i18n="stat3">Қанағаттанған ана</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card hero-card-1" onclick="openProductDetail(0)">
+        <img src="https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=400&h=300&fit=crop" alt="">
+        <div class="price">8 500 ₸</div><div class="title">Коляска 2 в 1</div>
+      </div>
+      <div class="hero-card hero-card-2" onclick="openProductDetail(1)">
+        <img src="https://images.unsplash.com/photo-1560506840-ec148e82a604?w=400&h=300&fit=crop" alt="">
+        <div class="price">1 200 ₸</div><div class="title">Киім пакеті 0-3 ай</div>
+      </div>
+      <div class="hero-card hero-card-3" onclick="openProductDetail(2)">
+        <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=300&fit=crop" alt="">
+        <div class="price" style="color:var(--success)">Тегін беремін</div><div class="title">Дамытушы кілем</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-tabs" id="mainTabs" role="tablist">
+  <button class="tab-btn active" data-type="all" onclick="switchTab(this,'all')"><i class="fas fa-th-large"></i> <span data-i18n="tab_all">Барлығы</span></button>
+  <button class="tab-btn" data-type="sale" onclick="switchTab(this,'sale')"><i class="fas fa-tag"></i> <span data-i18n="tab_sale">Сату</span></button>
+  <button class="tab-btn" data-type="swap" onclick="switchTab(this,'swap')"><i class="fas fa-exchange-alt"></i> <span data-i18n="tab_swap">Айырбас</span></button>
+  <button class="tab-btn" data-type="free" onclick="switchTab(this,'free')"><i class="fas fa-gift"></i> <span data-i18n="tab_free">Тегін</span></button>
+  <button class="tab-btn" data-type="rent" onclick="switchTab(this,'rent')"><i class="fas fa-clock"></i> <span data-i18n="tab_rent">Жалға</span></button>
+</div>
+
+<main class="main-content" id="mainContent">
+  <section class="categories" id="categoriesSection">
+    <div class="section-header">
+      <h2 class="section-title" data-i18n="sec_categories">Санаттар</h2>
+      <a class="section-link" onclick="showToast(t('all_categories'))" data-i18n="see_all">Барлығын көру →</a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card fade-in stagger-1" onclick="showCategory('Киім')"><div class="icon"><i class="fas fa-tshirt"></i></div><h4 data-i18n="cat_clothes">Киім</h4><span>2 340</span></div>
+      <div class="cat-card fade-in stagger-2" onclick="showCategory('Аяқ киім')"><div class="icon"><i class="fas fa-shoe-prints"></i></div><h4 data-i18n="cat_shoes">Аяқ киім</h4><span>890</span></div>
+      <div class="cat-card fade-in stagger-3" onclick="showCategory('Коляскалар')"><div class="icon"><i class="fas fa-baby-carriage"></i></div><h4 data-i18n="cat_strollers">Коляскалар</h4><span>456</span></div>
+      <div class="cat-card fade-in stagger-4" onclick="showCategory('Жиһаз')"><div class="icon"><i class="fas fa-bed"></i></div><h4 data-i18n="cat_furniture">Жиһаз</h4><span>678</span></div>
+      <div class="cat-card fade-in stagger-1" onclick="showCategory('Көлік')"><div class="icon"><i class="fas fa-bicycle"></i></div><h4 data-i18n="cat_transport">Көлік</h4><span>345</span></div>
+      <div class="cat-card fade-in stagger-2" onclick="showCategory('Ойыншықтар')"><div class="icon"><i class="fas fa-puzzle-piece"></i></div><h4 data-i18n="cat_toys">Ойыншықтар</h4><span>1 230</span></div>
+      <div class="cat-card fade-in stagger-3" onclick="showCategory('Тамақтану')"><div class="icon"><i class="fas fa-utensils"></i></div><h4 data-i18n="cat_food">Тамақтану</h4><span>567</span></div>
+      <div class="cat-card fade-in stagger-4" onclick="showCategory('Гигиена')"><div class="icon"><i class="fas fa-pump-soap"></i></div><h4 data-i18n="cat_hygiene">Гигиена</h4><span>890</span></div>
+    </div>
+  </section>
+
+  <section id="listings">
+    <div class="section-header">
+      <h2 class="section-title" id="listingsTitle" data-i18n="new_listings">Жаңа хабарландырулар</h2>
+      <a class="section-link" onclick="showToast(t('all_listings'))" data-i18n="see_all">Барлығын көру →</a>
+    </div>
+    <div class="listings-grid" id="listingsGrid"></div>
+  </section>
+
+  <div class="urgent-banner" onclick="showFreeItems()">
+    <div>
+      <h3><i class="fas fa-hand-holding-heart"></i> <span data-i18n="urgent_title">Көмек керек пе?</span></h3>
+      <p data-i18n="urgent_text">Аналар қазір заттарды тегін беруде. Қиын жағдайда көмек табыңыз.</p>
+      <button class="btn btn-lg" onclick="event.stopPropagation();showFreeItems()"><i class="fas fa-gift"></i> <span data-i18n="urgent_btn">«Тегін беремін» көру</span></button>
+    </div>
+    <div class="urgent-items">
+      <div class="urgent-item"><i class="fas fa-baby-carriage"></i><br><span data-i18n="cat_strollers">Коляскалар</span></div>
+      <div class="urgent-item"><i class="fas fa-tshirt"></i><br><span data-i18n="cat_clothes">Киім</span></div>
+      <div class="urgent-item"><i class="fas fa-bed"></i><br><span data-i18n="cat_furniture">Жиһаз</span></div>
+      <div class="urgent-item"><i class="fas fa-book"></i><br><span data-i18n="cat_books">Кітаптар</span></div>
+    </div>
+  </div>
+
+  <section id="consult">
+    <div class="section-header">
+      <h2 class="section-title" data-i18n="sec_consult">Онлайн кеңестер</h2>
+      <a class="section-link" onclick="showToast(t('all_specialists'))" data-i18n="all_specialists_link">Барлық мамандар →</a>
+    </div>
+    <div class="consult-grid" id="consultGrid"></div>
+  </section>
+
+  <section class="features">
+    <div class="section-header"><h2 class="section-title" data-i18n="sec_why">Неге бізді таңдайды</h2></div>
+    <div class="features-grid">
+      <div class="feature-card fade-in stagger-1"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4 data-i18n="feat1_title">Қауіпсіз мәмілелер</h4><p data-i18n="feat1_text">Тауар мәселесі болса ақшаны қайтарып беру кепілдігі</p></div>
+      <div class="feature-card fade-in stagger-2"><div class="icon"><i class="fas fa-user-check"></i></div><h4 data-i18n="feat2_title">Тексерілген дәрігерлер</h4><p data-i18n="feat2_text">Барлық мамандар құжаттарын растайды</p></div>
+      <div class="feature-card fade-in stagger-3"><div class="icon"><i class="fas fa-hand-holding-heart"></i></div><h4 data-i18n="feat3_title">Әлеуметтік миссия</h4><p data-i18n="feat3_text">Қиын жағдайдағы аналарға көмектесеміз</p></div>
+      <div class="feature-card fade-in stagger-4"><div class="icon"><i class="fas fa-comments"></i></div><h4 data-i18n="feat4_title">Қоғамдастық</h4><p data-i18n="feat4_text">Жергілікті чаттар және басқа аналардың қолдауы</p></div>
+    </div>
+  </section>
+</main>
+
+<!-- CATEGORY PAGE -->
+<div class="main-content" id="categoryPage" style="display:none">
+  <div class="category-header">
+    <h2 id="categoryTitle">Санат</h2>
+    <div class="filter-bar">
+      <select id="cityFilter" onchange="filterListings()">
+        <option value="" data-i18n="filter_all_cities">Барлық қалалар</option>
+        <option>Алматы</option><option>Астана</option><option>Шымкент</option><option>Қарағанды</option><option>Ақтөбе</option>
+      </select>
+      <select id="priceFilter" onchange="filterListings()">
+        <option value="" data-i18n="filter_any_price">Кез келген баға</option>
+        <option value="0-5000">5 000 ₸ дейін</option>
+        <option value="5000-20000">5 000 — 20 000 ₸</option>
+        <option value="20000-50000">20 000 — 50 000 ₸</option>
+        <option value="50000+">50 000 ₸ бастап</option>
+      </select>
+      <input type="text" id="categorySearch" placeholder="Іздеу..." onkeypress="if(event.key==='Enter')filterListings()">
+      <button class="btn btn-primary btn-sm" onclick="filterListings()"><i class="fas fa-filter"></i> <span data-i18n="btn_filter">Сүзгілеу</span></button>
+      <button class="btn btn-outline btn-sm" onclick="showHome()"><i class="fas fa-arrow-left"></i> <span data-i18n="btn_back">Артқа</span></button>
+    </div>
+  </div>
+  <div class="listings-grid" id="categoryListings"></div>
+</div>
+
+<!-- WISHLIST PAGE -->
+<div class="main-content" id="wishlistPage" style="display:none">
+  <div class="wishlist-header">
+    <button onclick="showHome()" style="position:absolute;left:24px;top:50%;transform:translateY(-50%);background:var(--gray-light);border:none;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;color:var(--dark)"><i class="fas fa-arrow-left"></i></button>
+    <h2><i class="fas fa-heart" style="color:var(--primary)"></i> <span data-i18n="wishlist_title">Тілектер тізімі</span></h2>
+    <p data-i18n="wishlist_sub">Сіз таңдаған заттар</p>
+  </div>
+  <div class="listings-grid" id="wishlistGrid"></div>
+</div>
+
+<footer class="footer" id="mainFooter">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><i class="fas fa-baby"></i> МамаМаркет</div>
+        <p data-i18n="footer_about">Жас аналарға арналған платформа.</p>
+        <div class="footer-social">
+          <a onclick="showToast('VK')"><i class="fab fa-vk"></i></a>
+          <a onclick="showToast('Telegram')"><i class="fab fa-telegram"></i></a>
+          <a onclick="showToast('Instagram')"><i class="fab fa-instagram"></i></a>
+          <a onclick="showToast('YouTube')"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h5 data-i18n="footer_listings">Хабарландырулар</h5>
+        <ul class="footer-links">
+          <li><a onclick="showCategory('Киім')" data-i18n="footer_categories">Санаттар</a></li>
+          <li><a onclick="showFreeItems()" data-i18n="tab_free">Тегін беремін</a></li>
+          <li><a onclick="checkAuthAndOpenAdd()" data-i18n="btn_post">Жариялау</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="sec_consult">Кеңестер</h5>
+        <ul class="footer-links">
+          <li><a onclick="scrollToSection('consult')">Педиатрлар</a></li>
+          <li><a onclick="scrollToSection('consult')">Психологтар</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer_help">Көмек</h5>
+        <ul class="footer-links">
+          <li><a onclick="showToast(t('how_it_works'))" data-i18n="footer_how">Қалай жұмыс істейді</a></li>
+          <li><a onclick="showToast(t('safety'))" data-i18n="footer_safety">Қауіпсіздік</a></li>
+          <li><a onclick="showToast(t('support'))" data-i18n="footer_support">Қолдау</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 МамаМаркет.</span>
+      <span data-i18n="footer_legal">Құпиялылық саясаты · Пайдаланушы келісімі</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-sign-in-alt" style="color:var(--primary)"></i> <span data-i18n="login_title">Аккаунтқа кіру</span></h3>
+      <button class="modal-close" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="auth-tabs">
+        <div class="auth-tab active" onclick="switchAuthTab('login')" data-i18n="btn_login">Кіру</div>
+        <div class="auth-tab" onclick="switchAuthTab('register')" data-i18n="btn_register">Тіркелу</div>
+      </div>
+      <form id="loginForm" onsubmit="handleLogin(event)" novalidate>
+        <div class="form-group"><label data-i18n="login_email">Email немесе телефон</label><input type="text" id="loginEmail" placeholder="misa@mail.ru" required></div>
+        <div class="form-group"><label data-i18n="login_pass">Құпия сөз</label><input type="password" id="loginPassword" placeholder="••••••••" required></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:8px">
+          <label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;cursor:pointer"><input type="checkbox" checked> <span data-i18n="remember_me">Мені есте сақта</span></label>
+          <a style="font-size:0.85rem;color:var(--primary);cursor:pointer" onclick="showToast(t('forgot_pass'))" data-i18n="forgot_pass">Құпия сөзді ұмыттыңыз ба?</a>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;justify-content:center" data-i18n="btn_login">Кіру</button>
+      </form>
+      <div class="divider"><span data-i18n="or_via">немесе арқылы</span></div>
+      <div class="social-auth">
+        <button class="social-btn" onclick="showToast('Google')"><i class="fab fa-google"></i> Google</button>
+        <button class="social-btn" onclick="showToast('VK')"><i class="fab fa-vk"></i> VK</button>
+        <button class="social-btn" onclick="showToast('Telegram')"><i class="fab fa-telegram"></i> TG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER MODAL -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-user-plus" style="color:var(--primary)"></i> <span data-i18n="reg_title">Тіркелу</span></h3>
+      <button class="modal-close" onclick="closeModal('registerModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="auth-tabs">
+        <div class="auth-tab" onclick="switchAuthTab('login')" data-i18n="btn_login">Кіру</div>
+        <div class="auth-tab active" onclick="switchAuthTab('register')" data-i18n="btn_register">Тіркелу</div>
+      </div>
+      <form id="registerForm" onsubmit="handleRegister(event)" novalidate>
+        <div class="form-row">
+          <div class="form-group"><label data-i18n="reg_name">Аты</label><input type="text" id="regName" placeholder="Айгүл" required></div>
+          <div class="form-group"><label data-i18n="reg_surname">Тегі</label><input type="text" id="regSurname" placeholder="Серікова" required></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="aygul@mail.ru" required></div>
+        <div class="form-group"><label data-i18n="reg_phone">Телефон</label><input type="tel" id="regPhone" placeholder="+7 (777) 123-45-67" required></div>
+        <div class="form-row">
+          <div class="form-group"><label data-i18n="reg_pass">Құпия сөз</label><input type="password" id="regPassword" placeholder="Кемінде 8 таңба" required></div>
+          <div class="form-group"><label data-i18n="reg_pass2">Қайталау</label><input type="password" id="regPassword2" placeholder="••••••••" required></div>
+        </div>
+        <div class="form-group">
+          <label data-i18n="reg_city">Қала</label>
+          <select id="regCity" required>
+            <option value="" data-i18n="reg_city_choose">Қаланы таңдаңыз</option>
+            <option>Алматы</option><option>Астана</option><option>Шымкент</option><option>Қарағанды</option>
+            <option>Ақтөбе</option><option>Атырау</option><option>Павлодар</option><option>Өскемен</option>
+            <option>Тараз</option><option>Семей</option><option>Орал</option><option>Қостанай</option>
+            <option>Петропавл</option><option>Қызылорда</option><option>Ақтау</option><option value="Басқа">Басқа қала</option>
+          </select>
+        </div>
+        <label style="display:flex;align-items:flex-start;gap:8px;font-size:0.85rem;margin-bottom:20px;cursor:pointer">
+          <input type="checkbox" required style="margin-top:3px"> <span data-i18n="agree_terms">Ережелер мен құпиялылық саясатымен келісемін</span>
+        </label>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;justify-content:center">
+          <i class="fas fa-user-plus"></i> <span data-i18n="btn_register">Тіркелу</span>
+        </button>
+      </form>
+      <div class="divider"><span data-i18n="or_via">немесе арқылы</span></div>
+      <div class="social-auth">
+        <button class="social-btn" onclick="showToast('Google')"><i class="fab fa-google"></i> Google</button>
+        <button class="social-btn" onclick="showToast('VK')"><i class="fab fa-vk"></i> VK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VERIFY MODAL -->
+<div class="modal-overlay" id="verifyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-id-card" style="color:var(--primary)"></i> <span data-i18n="verify_title">Профильді растау</span></h3>
+      <button class="modal-close" onclick="closeModal('verifyModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <p style="margin-bottom:20px;color:var(--gray);font-size:0.9rem" data-i18n="verify_text">Аккаунтыңыздың қауіпсіздігін арттыру үшін растаңыз.</p>
+      <div class="verify-steps">
+        <div class="verify-step" id="vstep_email">
+          <i class="fas fa-envelope" style="color:var(--primary);font-size:1.4rem"></i>
+          <div style="flex:1">
+            <h5 style="margin-bottom:4px" data-i18n="verify_email">Email растау</h5>
+            <p style="font-size:0.82rem;color:var(--gray)" id="vstepEmailAddr"></p>
+            <div id="vstepEmailInput" style="display:none;margin-top:8px">
+              <input type="text" id="emailCodeInput" placeholder="6 таңбалы код" maxlength="6" style="padding:8px 12px;border:1.5px solid var(--gray-light);border-radius:8px;font-family:inherit;width:140px;font-size:0.9rem">
+              <button onclick="verifyCode('email')" class="btn btn-primary btn-sm" style="margin-left:8px">OK</button>
+            </div>
+          </div>
+          <button id="vstepEmailBtn" onclick="sendVerifyCode('email')" class="btn btn-primary btn-sm">Жіберу</button>
+        </div>
+        <div class="verify-step" id="vstep_phone">
+          <i class="fas fa-mobile-alt" style="color:#27ae60;font-size:1.4rem"></i>
+          <div style="flex:1">
+            <h5 style="margin-bottom:4px" data-i18n="verify_phone">Телефон растау</h5>
+            <div id="vstepPhoneInput" style="display:none;margin-top:8px">
+              <input type="text" id="phoneCodeInput" placeholder="6 таңбалы код" maxlength="6" style="padding:8px 12px;border:1.5px solid var(--gray-light);border-radius:8px;font-family:inherit;width:140px;font-size:0.9rem">
+              <button onclick="verifyCode('phone')" class="btn btn-primary btn-sm" style="margin-left:8px">OK</button>
+            </div>
+          </div>
+          <button id="vstepPhoneBtn" onclick="sendVerifyCode('phone')" class="btn btn-outline btn-sm">SMS</button>
+        </div>
+        <div class="verify-step">
+          <i class="fas fa-id-card" style="color:#3498db;font-size:1.4rem"></i>
+          <div style="flex:1">
+            <h5 style="margin-bottom:4px" data-i18n="verify_id">Жеке куәлік</h5>
+            <p style="font-size:0.82rem;color:var(--gray)" data-i18n="verify_upload">Куәлік фотосын жүктеңіз</p>
+          </div>
+          <button onclick="showToast(currentLang==='ru'?'Функция в разработке':'Функция жасалуда')" class="btn btn-outline btn-sm" data-i18n="btn_upload">Жүктеу</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal-overlay" id="adminLoginModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-user-shield" style="color:var(--primary)"></i> Админ кіру</h3>
+      <button class="modal-close" onclick="closeModal('adminLoginModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="admin-login-note"><b>Жеке админ кіруі.</b> Бұл бөлім тек сайт иесіне арналған. Логин мен парольді ешкімге бермеңіз.</div>
+      <form id="adminLoginForm" onsubmit="handleAdminLogin(event)">
+        <div class="form-group"><label>Логин</label><input id="adminLoginName" type="text" autocomplete="username" required placeholder="Админ логин"></div>
+        <div class="form-group"><label>Пароль</label><input id="adminLoginPass" type="password" autocomplete="current-password" required placeholder="Админ пароль"></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><i class="fas fa-lock-open"></i> Панельге кіру</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ADMIN PANEL -->
+<div class="admin-page" id="adminPage">
+  <div class="admin-topbar">
+    <button class="hdr-icon-btn" onclick="closeAdminPanel()"><i class="fas fa-arrow-left"></i></button>
+    <h2><i class="fas fa-user-shield" style="color:var(--primary)"></i> Админ панель</h2>
+    <span class="admin-muted" style="flex:1">MamaMarket басқару</span>
+    <button class="btn btn-outline btn-sm" onclick="adminExportData()"><i class="fas fa-download"></i> Экспорт</button>
+    <button class="btn btn-outline btn-sm admin-danger" onclick="adminLogout()"><i class="fas fa-sign-out-alt"></i> Шығу</button>
+  </div>
+  <div class="admin-shell">
+    <div class="admin-grid">
+      <div class="admin-card"><div class="admin-num" id="adminStatListings">0</div><div class="admin-label">Хабарландыру</div></div>
+      <div class="admin-card"><div class="admin-num" id="adminStatUsers">0</div><div class="admin-label">Қолданушы</div></div>
+      <div class="admin-card"><div class="admin-num" id="adminStatChats">0</div><div class="admin-label">Чат</div></div>
+      <div class="admin-card"><div class="admin-num" id="adminStatMessages">0</div><div class="admin-label">Хабарлама</div></div>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchAdminTab('listings',this)"><i class="fas fa-tags"></i> Хабарландырулар</button>
+      <button class="admin-tab" onclick="switchAdminTab('users',this)"><i class="fas fa-users"></i> Қолданушылар</button>
+      <button class="admin-tab" onclick="switchAdminTab('chats',this)"><i class="fas fa-comments"></i> Чаттар</button>
+      <button class="admin-tab" onclick="switchAdminTab('tools',this)"><i class="fas fa-wrench"></i> Құралдар</button>
+    </div>
+    <section class="admin-panel active" id="adminPanelListings">
+      <div class="admin-toolbar"><h3>Хабарландыруларды басқару</h3><div class="admin-filter"><input id="adminListingSearch" oninput="renderAdminListings()" placeholder="Атауы, қала, сатушы бойынша іздеу"></div></div>
+      <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Фото</th><th>Атауы</th><th>Баға</th><th>Қала</th><th>Сатушы</th><th>Әрекет</th></tr></thead><tbody id="adminListingsBody"></tbody></table></div>
+    </section>
+    <section class="admin-panel" id="adminPanelUsers">
+      <div class="admin-toolbar"><h3>Қолданушылар</h3><div class="admin-filter"><input id="adminUserSearch" oninput="renderAdminUsers()" placeholder="Аты немесе email бойынша іздеу"></div></div>
+      <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Аты</th><th>Email</th><th>Қала</th><th>Телефон</th><th>Әрекет</th></tr></thead><tbody id="adminUsersBody"></tbody></table></div>
+    </section>
+    <section class="admin-panel" id="adminPanelChats">
+      <div class="admin-toolbar"><h3>Чаттар</h3></div>
+      <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Қатысушылар</th><th>Хабарландыру</th><th>Жаңартылды</th><th>Әрекет</th></tr></thead><tbody id="adminChatsBody"></tbody></table></div>
+    </section>
+    <section class="admin-panel" id="adminPanelTools">
+      <div class="admin-card">
+        <h3 style="margin-bottom:10px">Жүйелік құралдар</h3>
+        <p class="admin-muted" style="margin-bottom:14px">Бұл батырмалар тек осы браузердегі сақталған деректерге әсер етеді.</p>
+        <div class="admin-actions">
+          <button class="btn btn-outline" onclick="adminExportData()"><i class="fas fa-download"></i> Деректерді JSON қылып сақтау</button>
+          <button class="btn btn-outline admin-danger" onclick="adminClearUserListings()"><i class="fas fa-trash-alt"></i> Қолданушы хабарландыруларын тазалау</button>
+          <button class="btn btn-outline admin-danger" onclick="adminClearChats()"><i class="fas fa-comment-slash"></i> Чаттарды тазалау</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- ADD LISTING MODAL -->
+<div class="modal-overlay" id="addModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3><i class="fas fa-plus-circle" style="color:var(--primary)"></i> <span data-i18n="add_listing_title">Хабарландыру жариялау</span></h3>
+      <button class="modal-close" onclick="closeModal('addModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="addListingForm" onsubmit="handleAddListing(event)" novalidate>
+        <div class="form-group"><label data-i18n="add_name">Хабарландыру атауы</label><input type="text" id="addTitle" placeholder="Мысалы: Коляска 2 в 1" required maxlength="120"></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="add_category">Санат</label>
+            <select id="addCategory" required>
+              <option value="" data-i18n="add_choose_cat">Санатты таңдаңыз</option>
+              <option value="Киім">Киім</option><option value="Аяқ киім">Аяқ киім</option>
+              <option value="Коляскалар">Коляскалар</option><option value="Жиһаз">Жиһаз</option>
+              <option value="Көлік">Көлік</option><option value="Ойыншықтар">Ойыншықтар</option>
+              <option value="Тамақтану">Тамақтану</option><option value="Гигиена">Гигиена</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="add_type">Мәміле түрі</label>
+            <select id="addType" required>
+              <option value="sale" data-i18n="tab_sale">Сату</option>
+              <option value="swap" data-i18n="tab_swap">Айырбас</option>
+              <option value="free" data-i18n="tab_free">Тегін беремін</option>
+              <option value="rent" data-i18n="tab_rent">Жалға</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="add_age">Бала жасы</label>
+            <select id="addAge" required>
+              <option value="0-3">0-3 ай</option><option value="3-6">3-6 ай</option>
+              <option value="6-12">6-12 ай</option><option value="1-2">1-2 жас</option>
+              <option value="2-3">2-3 жас</option><option value="3-5">3-5 жас</option><option value="5+">5+ жас</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-i18n="add_price">Баға (₸)</label><input type="number" id="addPrice" placeholder="0" min="0"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="reg_city">Қала</label>
+            <select id="addCity" required>
+              <option value="" data-i18n="reg_city_choose">Қаланы таңдаңыз</option>
+              <option>Алматы</option><option>Астана</option><option>Шымкент</option><option>Қарағанды</option>
+              <option>Ақтөбе</option><option>Атырау</option><option>Павлодар</option><option>Өскемен</option>
+              <option>Тараз</option><option>Семей</option><option>Орал</option><option>Қостанай</option>
+              <option>Петропавл</option><option>Қызылорда</option><option>Ақтау</option><option value="Басқа">Басқа қала</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-i18n="add_district">Аймақ</label><input type="text" id="addDistrict" placeholder="Алмалы ауданы"></div>
+        </div>
+        <div class="form-group"><label data-i18n="add_desc">Сипаттама</label><textarea id="addDesc" placeholder="Тауар күйін, өлшемін сипаттаңыз..." required></textarea></div>
+        <div class="form-group">
+          <label data-i18n="add_photos">Фотосуреттер</label>
+          <input type="file" id="addPhotoInput" accept="image/*" multiple style="display:none" onchange="handlePhotoSelect(event)">
+          <div class="photo-upload-zone" id="photoUploadZone" onclick="document.getElementById('addPhotoInput').click()"
+            ondragover="event.preventDefault();this.classList.add('drag-over')"
+            ondragleave="this.classList.remove('drag-over')"
+            ondrop="handlePhotoDrop(event)">
+            <i class="fas fa-cloud-upload-alt" style="font-size:2rem;margin-bottom:8px;display:block;color:var(--primary)"></i>
+            <p style="font-weight:600" id="photoUploadLabel">Фото таңдау немесе сүйреу</p>
+            <p style="font-size:0.8rem;color:var(--gray);margin-top:4px">JPG, PNG · 5 МБ дейін · макс 5 фото</p>
+          </div>
+          <div id="photoPreviewGrid" style="display:none;margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px"></div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:14px;justify-content:center">
+          <i class="fas fa-check"></i> <span data-i18n="btn_publish">Жариялау</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal wide">
+    <div class="modal-header">
+      <h3><i class="fas fa-eye" style="color:var(--primary)"></i> <span data-i18n="product_title">Хабарландыруды көру</span></h3>
+      <button class="modal-close" onclick="closeModal('productModal')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body"><div class="product-detail" id="productDetailContent"></div></div>
+  </div>
+</div>
+
+<!-- CHAT PAGE -->
+<div id="chatPage" style="display:none">
+  <div class="chat-page">
+    <div class="chat-page-header">
+      <button class="chat-close-big" onclick="closeChatPage()"><i class="fas fa-arrow-left"></i></button>
+      <i class="fas fa-baby" style="color:var(--primary);font-size:1.2rem"></i>
+      <span style="font-weight:700;font-size:1rem">МамаМаркет</span>
+      <span style="flex:1;font-weight:600;font-size:0.95rem;color:var(--gray)" data-i18n="chat_title">Хабарламалар</span>
+      <button class="chat-page-close" onclick="closeChatPage()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-layout">
+      <div class="chat-sidebar" id="chatSidebar">
+        <div class="chat-sidebar-header">
+          <h3 data-i18n="chat_title">Хабарламалар</h3>
+          <input class="chat-search" id="chatSearch" placeholder="Іздеу..." oninput="filterChatList(this.value)">
+        </div>
+        <div class="chat-list" id="chatList"></div>
+      </div>
+      <div class="chat-main" id="chatMain">
+        <div class="chat-no-conv" id="chatNoConv">
+          <i class="fas fa-comments"></i>
+          <h3 data-i18n="chat_select">Сөйлесуді таңдаңыз</h3>
+          <p data-i18n="chat_select_sub">Немесе хабарландырудан «Сатушыға жазу» батырмасын басыңыз</p>
+        </div>
+        <div id="chatConvArea" style="display:none;flex:1;flex-direction:column;overflow:hidden">
+          <div class="chat-main-header">
+            <button class="chat-back-btn" onclick="showChatSidebarMobile()"><i class="fas fa-arrow-left"></i></button>
+            <div class="chat-main-header-avatar"><img id="convAvatar" src="" alt=""></div>
+            <div class="chat-main-header-info"><h4 id="convName">—</h4><p id="convStatus" style="color:var(--gray);font-size:0.78rem">—</p></div>
+            <div class="chat-main-header-actions">
+              <button class="chat-icon-btn danger" onclick="confirmDeleteConv()"><i class="fas fa-trash-alt"></i></button>
+            </div>
+          </div>
+          <div id="chatListingRef" style="display:none" class="chat-listing-ref">
+            <img id="chatListingImg" src="" alt="">
+            <div class="chat-listing-ref-info">
+              <div class="chat-listing-ref-title" id="chatListingTitle"></div>
+              <div class="chat-listing-ref-price" id="chatListingPrice"></div>
+            </div>
+          </div>
+          <div id="deleteConfirm" class="delete-confirm" style="display:none">
+            <i class="fas fa-exclamation-triangle" style="color:#e74c3c"></i>
+            <span data-i18n="delete_confirm_text">Бұл сөйлесуді жойғыңыз келеді ме?</span>
+            <button class="btn btn-sm" style="background:#e74c3c;color:white;margin-left:auto" onclick="deleteConv()"><span data-i18n="btn_delete">Жою</span></button>
+            <button class="btn btn-sm btn-outline" onclick="document.getElementById('deleteConfirm').style.display='none'"><span data-i18n="btn_cancel">Бас тарту</span></button>
+          </div>
+          <div class="chat-messages" id="chatMessages"></div>
+          <div class="chat-input-area">
+            <textarea id="chatInput" placeholder="Хабарлама жазыңыз..." rows="1"
+              onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}"
+              oninput="autoResizeTextarea(this)"></textarea>
+            <button class="chat-send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE PAGE -->
+<div id="profilePage" style="display:none;position:fixed;inset:0;background:var(--gray-light);z-index:1800;overflow-y:auto">
+  <div class="prof-hdr">
+    <button class="prof-back-btn" onclick="closeProfilePage()"><i class="fas fa-arrow-left"></i></button>
+    <div style="padding-top:56px;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;text-align:center;padding-bottom:8px">
+      <div class="prof-av-wrap">
+        <img id="profileAvatarImg" src="" alt="" style="display:none">
+        <div class="prof-initials-big" id="profileInitialsPlaceholder" style="display:none"></div>
+        <button class="prof-cam-btn" onclick="triggerAvatarUpload()"><i class="fas fa-camera"></i></button>
+        <input type="file" id="avatarFileInput" accept="image/*" style="display:none" onchange="handleAvatarUpload(event)">
+      </div>
+      <h2 id="profileDisplayName" style="color:white;font-size:1.25rem;font-weight:800;margin-top:12px"></h2>
+      <p id="profileDisplayEmail" style="color:rgba(255,255,255,0.78);font-size:0.85rem;margin-top:3px"></p>
+      <span id="profileDisplayCity" style="background:rgba(255,255,255,0.18);color:white;padding:4px 16px;border-radius:50px;font-size:0.78rem;font-weight:600;margin-top:8px;display:inline-block"></span>
+    </div>
+  </div>
+  <div style="max-width:680px;margin:0 auto;padding:0 14px 50px">
+    <div class="prof-card" style="margin-top:-22px;position:relative;z-index:2">
+      <div style="display:flex;align-items:center">
+        <div class="prof-stat"><div class="snum" id="statListings">0</div><div class="slbl" id="statListingsLbl">Хабарландыру</div></div>
+        <div class="prof-divider"></div>
+        <div class="prof-stat"><div class="snum" id="statWishlist">0</div><div class="slbl" id="statWishlistLbl">Тілектер</div></div>
+        <div class="prof-divider"></div>
+        <div class="prof-stat"><div class="snum" id="statChats">0</div><div class="slbl" id="statChatsLbl">Хабарламалар</div></div>
+      </div>
+    </div>
+    <div class="prof-card">
+      <div class="prof-sec" id="profActionsTitle">Жылдам әрекеттер</div>
+      <div class="prof-quick">
+        <button class="prof-quick-btn" onclick="checkAuthAndOpenAdd();closeProfilePage()" style="background:var(--primary-light);color:var(--primary)"><i class="fas fa-plus-circle"></i><span id="profBtnPost">Жариялау</span></button>
+        <button class="prof-quick-btn" onclick="showWishlist();closeProfilePage()" style="background:#fff0f3;color:var(--primary)"><i class="fas fa-heart"></i><span id="profBtnWish">Тілектер</span></button>
+        <button class="prof-quick-btn" onclick="openChatModal();closeProfilePage()" style="background:#e8faf8;color:#00b894"><i class="fas fa-comment-dots"></i><span id="profBtnChat">Хабарламалар</span></button>
+        <button class="prof-quick-btn" onclick="scrollToSection('consult');closeProfilePage()" style="background:#ebf5fb;color:#3498db"><i class="fas fa-user-md"></i><span id="profBtnConsult">Кеңес</span></button>
+      </div>
+    </div>
+    <div class="prof-card">
+      <div class="prof-sec" id="profInfoTitle">Жеке деректер</div>
+      <div class="prof-2col">
+        <div class="prof-field"><label id="profNameLabel">Аты-жөні</label><input id="profileName" type="text"></div>
+        <div class="prof-field"><label id="profPhoneLabel">Телефон</label><input id="profilePhone" type="tel" placeholder="+7 (777) 000-00-00"></div>
+      </div>
+      <div class="prof-field">
+        <label id="profCityLabel">Қала</label>
+        <select id="profileCityInput">
+          <option value="">—</option>
+          <option>Алматы</option><option>Астана</option><option>Шымкент</option><option>Қарағанды</option>
+          <option>Ақтөбе</option><option>Атырау</option><option>Павлодар</option><option>Өскемен</option>
+          <option>Тараз</option><option>Семей</option><option>Орал</option><option>Қостанай</option>
+          <option>Петропавл</option><option>Қызылорда</option><option>Ақтау</option>
+        </select>
+      </div>
+      <button onclick="saveProfileInfo()" class="prof-btn-p" id="profSaveBtn">Сақтау</button>
+    </div>
+    <div class="prof-card">
+      <div class="prof-sec" id="profPassTitle">Пароль өзгерту</div>
+      <div class="prof-field"><label id="profOldPassLabel">Ескі пароль</label><input id="profileOldPass" type="password"></div>
+      <div class="prof-2col">
+        <div class="prof-field"><label id="profNewPassLabel">Жаңа пароль</label><input id="profileNewPass" type="password"></div>
+        <div class="prof-field"><label id="profNewPass2Label">Қайталау</label><input id="profileNewPass2" type="password"></div>
+      </div>
+      <button onclick="changePassword()" class="prof-btn-o" id="profChangePassBtn">Парольді өзгерту</button>
+    </div>
+    <div class="prof-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <div class="prof-sec" id="profMyListTitle" style="margin:0">Менің хабарландырулар</div>
+        <button onclick="checkAuthAndOpenAdd();closeProfilePage()" style="padding:8px 16px;background:var(--primary);color:white;border:none;border-radius:50px;font-size:0.82rem;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px"><i class="fas fa-plus"></i><span id="profAddBtn">Жариялау</span></button>
+      </div>
+      <div id="profileListingsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px"></div>
+    </div>
+    <div class="prof-card">
+      <div class="prof-sec" id="profSettingsTitle">Баптаулар</div>
+      <div class="prof-menu-row" onclick="toggleDark()">
+        <div class="prof-menu-ic" style="background:#fff9e6;color:#f39c12"><i class="fas fa-moon"></i></div>
+        <div style="flex:1"><div style="font-weight:600;font-size:0.88rem" id="profDarkLabel">Қараңғы тема</div><div style="font-size:0.76rem;color:var(--gray)" id="profDarkSub">Dark mode</div></div>
+        <i class="fas fa-chevron-right" style="color:var(--gray);font-size:0.78rem"></i>
+      </div>
+      <div class="prof-menu-row" onclick="setLang(currentLang==='kk'?'ru':'kk');renderProfilePage()">
+        <div class="prof-menu-ic" style="background:#e8f5e9;color:#27ae60"><i class="fas fa-language"></i></div>
+        <div style="flex:1"><div style="font-weight:600;font-size:0.88rem" id="profLangLabel">Тіл / Язык</div><div style="font-size:0.76rem;color:var(--gray)">ҚАЗ ↔ РУС</div></div>
+        <i class="fas fa-chevron-right" style="color:var(--gray);font-size:0.78rem"></i>
+      </div>
+      <div class="prof-menu-row" onclick="showToast(currentLang==='ru'?'В разработке':'Жасалуда')">
+        <div class="prof-menu-ic" style="background:#fde8e8;color:#e74c3c"><i class="fas fa-bell"></i></div>
+        <div style="flex:1"><div style="font-weight:600;font-size:0.88rem" id="profNotifLabel">Хабарландырулар</div><div style="font-size:0.76rem;color:var(--gray)">Push-notifications</div></div>
+        <i class="fas fa-chevron-right" style="color:var(--gray);font-size:0.78rem"></i>
+      </div>
+      <div class="prof-menu-row" onclick="openModal('verifyModal');openVerifyModal()">
+        <div class="prof-menu-ic" style="background:#e8f4fd;color:#3498db"><i class="fas fa-shield-alt"></i></div>
+        <div style="flex:1"><div style="font-weight:600;font-size:0.88rem" id="profSafeLabel">Қауіпсіздік</div><div style="font-size:0.76rem;color:var(--gray)">Email / Телефон растау</div></div>
+        <span id="verifyStatusBadge" style="font-size:0.7rem;padding:3px 8px;border-radius:50px;background:#e8f5e9;color:#27ae60;font-weight:700;display:none">✓</span>
+        <i class="fas fa-chevron-right" style="color:var(--gray);font-size:0.78rem"></i>
+      </div>
+    </div>
+    <div class="prof-card">
+      <button onclick="logout();closeProfilePage()" style="width:100%;padding:14px;background:#fff0f0;color:#e74c3c;border:1.5px solid #fca5a5;border-radius:12px;font-weight:700;font-size:0.92rem;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:10px">
+        <i class="fas fa-sign-out-alt"></i><span id="profLogoutBtn">Аккаунттан шығу</span>
+      </button>
+    </div>
+  </div>
+</div>
+`r`n<script>
+// ====== i18n ======
+const LANG={
+kk:{
+nav_listings:'Хабарландырулар',nav_consult:'Кеңестер',nav_free:'Тегін беремін',
+nav_wishlist:'Тілектер тізімі',nav_messages:'Хабарламалар',
+btn_login:'Кіру',btn_register:'Тіркелу',btn_post:'Жариялау',
+btn_post_full:'Хабарландыру жариялау',btn_filter:'Сүзгілеу',
+btn_back:'Артқа',btn_publish:'Жариялау',btn_upload:'Жүктеу',btn_delete:'Жою',btn_cancel:'Бас тарту',
+hero_title:'Ана мен балаға <span>керек барлығы</span><br>бір жерде',
+hero_subtitle:'Балалар заттарын сатып алыңыз, айырбастаңыз немесе тегін алыңыз.',
+hero_btn1:'Заттарды табу',hero_btn2:'Кеңес алу',
+stat1:'Белсенді хабарландыру',stat2:'Маман',stat3:'Қанағаттанған ана',
+tab_all:'Барлығы',tab_sale:'Сату',tab_swap:'Айырбас',tab_free:'Тегін',tab_rent:'Жалға',
+sec_categories:'Санаттар',see_all:'Барлығын көру →',
+all_categories:'Барлық санаттар',all_listings:'Барлық хабарландырулар',all_specialists:'Барлық мамандар',
+new_listings:'Жаңа хабарландырулар',
+cat_clothes:'Киім',cat_shoes:'Аяқ киім',cat_strollers:'Коляскалар',
+cat_furniture:'Жиһаз',cat_transport:'Көлік',cat_toys:'Ойыншықтар',
+cat_food:'Тамақтану',cat_hygiene:'Гигиена',cat_books:'Кітаптар',
+urgent_title:'Көмек керек пе?',urgent_text:'Аналар қазір заттарды тегін беруде.',urgent_btn:'«Тегін беремін» көру',
+sec_consult:'Онлайн кеңестер',all_specialists_link:'Барлық мамандар →',
+sec_why:'Неге бізді таңдайды',
+feat1_title:'Қауіпсіз мәмілелер',feat1_text:'Тауар мәселесі болса ақшаны қайтарып беру кепілдігі',
+feat2_title:'Тексерілген дәрігерлер',feat2_text:'Барлық мамандар құжаттарын растайды',
+feat3_title:'Әлеуметтік миссия',feat3_text:'Қиын жағдайдағы аналарға көмектесеміз',
+feat4_title:'Қоғамдастық',feat4_text:'Жергілікті чаттар және басқа аналардың қолдауы',
+footer_about:'Жас аналарға арналған платформа.',footer_listings:'Хабарландырулар',
+footer_categories:'Санаттар',footer_help:'Көмек',footer_how:'Қалай жұмыс істейді',
+footer_safety:'Қауіпсіздік',footer_rules:'Ережелер',footer_support:'Қолдау',
+footer_legal:'Құпиялылық саясаты · Пайдаланушы келісімі',
+login_title:'Аккаунтқа кіру',login_email:'Email немесе телефон',login_pass:'Құпия сөз',
+remember_me:'Мені есте сақта',forgot_pass:'Құпия сөзді қалпына келтіру',
+reg_title:'Тіркелу',reg_name:'Аты',reg_surname:'Тегі',reg_phone:'Телефон',
+reg_pass:'Құпия сөз',reg_pass2:'Қайталау',reg_city:'Қала',reg_city_choose:'Қаланы таңдаңыз',
+agree_terms:'Ережелер мен құпиялылық саясатымен келісемін',or_via:'немесе арқылы',
+verify_title:'Профильді растау',verify_text:'Сенімділік арттыру үшін профильді растаңыз.',
+verify_email:'Email растау',verify_phone:'Телефон растау',verify_id:'Жеке куәлік',verify_upload:'Фото жүктеңіз',
+add_listing_title:'Хабарландыру жариялау',add_name:'Хабарландыру атауы',add_category:'Санат',
+add_choose_cat:'Санатты таңдаңыз',add_type:'Мәміле түрі',add_age:'Бала жасы',
+add_price:'Баға (₸)',add_district:'Аймақ',add_desc:'Сипаттама',add_photos:'Фотосуреттер',
+product_title:'Хабарландыруды көру',
+chat_title:'Хабарламалар',chat_placeholder:'Хабарлама жазыңыз...',
+chat_select:'Сөйлесуді таңдаңыз',chat_select_sub:'Немесе хабарландырудан «Сатушыға жазу» батырмасын басыңыз',
+delete_confirm_text:'Бұл сөйлесуді жойғыңыз келеді ме?',
+wishlist_title:'Тілектер тізімі',wishlist_sub:'Сіз таңдаған заттар',
+filter_all_cities:'Барлық қалалар',filter_any_price:'Кез келген баға',
+fav_added:'Тілектер тізіміне қосылды',fav_removed:'Тілектер тізімінен алынды',
+listing_added:'Хабарландыру жарияланды!',
+welcome:'Қош келдіңіз',login_first:'Алдымен кіріңіз немесе тіркеліңіз!',
+pass_mismatch:'Құпия сөздер сәйкес келмейді!',pass_short:'Құпия сөз кемінде 8 таңба!',
+logged_out:'Сіз аккаунттан шықтыңыз',search_hint:'Іздеу сұранысын енгізіңіз',
+seller_chat:'Сатушыға жазу',call:'Қоңырау шалу',save:'Сақтау',saved:'Сақталған',
+description:'Сипаттама',consult_write:'Жазу',consult_video:'Бейне',consult_price:'кеңес үшін',
+verified_label:'Тексерілді',free_label:'Тегін',swap_label:'Айырбас',rent_label:'Жалға/ай',
+how_it_works:'Қалай жұмыс істейді',safety:'Қауіпсіздік',rules:'Ережелер',support:'Қолдау',
+phone_show:'Телефон: +7 (777) 123-45-67',
+spec_pediatr:'Педиатр, м.ғ.д.',spec_gv:'Емізу кеңесшісі, IBCLC',
+spec_sleep:'Бала ұйықтату маманы',spec_psycho:'Бала психологы',
+profile_saved:'Профиль сақталды',profile_pass_changed:'Пароль сәтті өзгертілді',
+profile_del_listing_confirm:'Бұл хабарландыруды жойғыңыз келе ме?',
+listing_deleted:'Хабарландыру жойылды',
+},
+ru:{
+nav_listings:'Объявления',nav_consult:'Консультации',nav_free:'Отдам бесплатно',
+nav_wishlist:'Избранное',nav_messages:'Сообщения',
+btn_login:'Войти',btn_register:'Регистрация',btn_post:'Разместить',
+btn_post_full:'Разместить объявление',btn_filter:'Фильтр',
+btn_back:'Назад',btn_publish:'Опубликовать',btn_upload:'Загрузить',btn_delete:'Удалить',btn_cancel:'Отмена',
+hero_title:'Всё нужное для <span>мамы и малыша</span><br>в одном месте',
+hero_subtitle:'Покупайте, обменивайте или получайте детские вещи бесплатно.',
+hero_btn1:'Найти вещи',hero_btn2:'Получить совет',
+stat1:'Активных объявлений',stat2:'Специалистов',stat3:'Довольных мам',
+tab_all:'Все',tab_sale:'Продажа',tab_swap:'Обмен',tab_free:'Бесплатно',tab_rent:'Аренда',
+sec_categories:'Категории',see_all:'Посмотреть все →',
+all_categories:'Все категории',all_listings:'Все объявления',all_specialists:'Все специалисты',
+new_listings:'Новые объявления',
+cat_clothes:'Одежда',cat_shoes:'Обувь',cat_strollers:'Коляски',
+cat_furniture:'Мебель',cat_transport:'Транспорт',cat_toys:'Игрушки',
+cat_food:'Питание',cat_hygiene:'Гигиена',cat_books:'Книги',
+urgent_title:'Нужна помощь?',urgent_text:'Мамы сейчас раздают вещи бесплатно.',urgent_btn:'Смотреть «Бесплатно»',
+sec_consult:'Онлайн консультации',all_specialists_link:'Все специалисты →',
+sec_why:'Почему выбирают нас',
+feat1_title:'Безопасные сделки',feat1_text:'Гарантия возврата денег при проблемах с товаром',
+feat2_title:'Проверенные врачи',feat2_text:'Все специалисты подтверждают документы',
+feat3_title:'Социальная миссия',feat3_text:'Помогаем мамам в трудной ситуации',
+feat4_title:'Сообщество',feat4_text:'Локальные чаты и поддержка других мам',
+footer_about:'Платформа для молодых мам.',footer_listings:'Объявления',
+footer_categories:'Категории',footer_help:'Помощь',footer_how:'Как это работает',
+footer_safety:'Безопасность',footer_rules:'Правила',footer_support:'Поддержка',
+footer_legal:'Политика конфиденциальности · Пользовательское соглашение',
+login_title:'Войти в аккаунт',login_email:'Email или телефон',login_pass:'Пароль',
+remember_me:'Запомнить меня',forgot_pass:'Восстановление пароля',
+reg_title:'Регистрация',reg_name:'Имя',reg_surname:'Фамилия',reg_phone:'Телефон',
+reg_pass:'Пароль',reg_pass2:'Повторите пароль',reg_city:'Город',reg_city_choose:'Выберите город',
+agree_terms:'Я согласен с правилами и политикой конфиденциальности',or_via:'или через',
+verify_title:'Подтверждение профиля',verify_text:'Подтвердите профиль для повышения доверия.',
+verify_email:'Email подтверждён',verify_phone:'Подтверждение телефона',verify_id:'Удостоверение личности',verify_upload:'Загрузите фото',
+add_listing_title:'Разместить объявление',add_name:'Название объявления',add_category:'Категория',
+add_choose_cat:'Выберите категорию',add_type:'Тип сделки',add_age:'Возраст ребёнка',
+add_price:'Цена (₸)',add_district:'Район',add_desc:'Описание',add_photos:'Фотографии',
+product_title:'Просмотр объявления',
+chat_title:'Сообщения',chat_placeholder:'Напишите сообщение...',
+chat_select:'Выберите диалог',chat_select_sub:'Или нажмите «Написать продавцу» в объявлении',
+delete_confirm_text:'Вы хотите удалить этот диалог?',
+wishlist_title:'Избранное',wishlist_sub:'Выбранные вами товары',
+filter_all_cities:'Все города',filter_any_price:'Любая цена',
+fav_added:'Добавлено в избранное',fav_removed:'Удалено из избранного',
+listing_added:'Объявление опубликовано!',
+welcome:'Добро пожаловать',login_first:'Сначала войдите или зарегистрируйтесь!',
+pass_mismatch:'Пароли не совпадают!',pass_short:'Пароль должен быть не менее 8 символов!',
+logged_out:'Вы вышли из аккаунта',search_hint:'Введите запрос для поиска',
+seller_chat:'Написать продавцу',call:'Позвонить',save:'Сохранить',saved:'Сохранено',
+description:'Описание',consult_write:'Написать',consult_video:'Видео',consult_price:'за консультацию',
+verified_label:'Проверен',free_label:'Бесплатно',swap_label:'Обмен',rent_label:'Аренда/мес',
+how_it_works:'Как это работает',safety:'Безопасность',rules:'Правила',support:'Поддержка',
+phone_show:'Телефон: +7 (777) 123-45-67',
+spec_pediatr:'Педиатр, д.м.н.',spec_gv:'Консультант по ГВ, IBCLC',
+spec_sleep:'Специалист по сну',spec_psycho:'Детский психолог',
+profile_saved:'Профиль сохранён',profile_pass_changed:'Пароль успешно изменён',
+profile_del_listing_confirm:'Удалить это объявление?',
+listing_deleted:'Объявление удалено',
+}};
+
+let currentLang='kk';
+function t(k){return LANG[currentLang][k]||LANG.kk[k]||k;}
+
+function setLang(lang){
+  currentLang=lang;
+  document.documentElement.lang=lang;
+  ['langKK','langKKMob'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('active',lang==='kk');});
+  ['langRU','langRUMob'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.toggle('active',lang==='ru');});
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v=LANG[lang][el.getAttribute('data-i18n')];
+    if(v===undefined)return;
+    if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=v;
+    else if(el.tagName==='OPTION')el.textContent=v;
+    else el.innerHTML=v;
+  });
+  document.title=lang==='ru'?'МамаМаркет — объявления для мам':'МамаМаркет — аналарға арналған хабарландыру тақтасы';
+  renderListings();renderConsultations();
+  if(document.getElementById('wishlistPage').style.display!=='none')showWishlist();
+  const ci=document.getElementById('chatInput');if(ci)ci.placeholder=t('chat_placeholder');
+  const cs=document.getElementById('chatSearch');if(cs)cs.placeholder=lang==='ru'?'Поиск...':'Іздеу...';
+  updateMbnLabels();
+  if(document.getElementById('profilePage')?.style.display!=='none')renderProfilePage();
+}
+
+// ====== UTILS ======
+function esc(s){if(s==null)return'';const d=document.createElement('div');d.textContent=String(s);return d.innerHTML;}
+
+function formatPrice(item){
+  if(item.price===0)return'<span style="color:var(--success)">'+t('free_label')+'</span>';
+  if(item.price===null)return t('swap_label');
+  return item.price.toLocaleString()+' ₸';
+}
+
+function getAgeLabel(age){
+  const kk={'0-3':'0-3 ай','3-6':'3-6 ай','6-12':'6-12 ай','1-2':'1-2 жас','2-3':'2-3 жас','3-5':'3-5 жас','5+':'5+ жас'};
+  const ru={'0-3':'0-3 мес','3-6':'3-6 мес','6-12':'6-12 мес','1-2':'1-2 года','2-3':'2-3 года','3-5':'3-5 лет','5+':'5+ лет'};
+  return(currentLang==='ru'?ru[age]:kk[age])||age;
+}
+
+function getExpLabel(y){return currentLang==='ru'?y+' лет опыта':y+' жыл тәжірибе';}
+
+// ====== DATA ======
+const listings=[
+  {id:0,title:"Коляска Inglesina Aptica 2 в 1",price:12000,oldPrice:18000,type:"sale",category:"Коляскалар",city:"Алматы",district:"Алмалы",time:"2 сағат бұрын",age:"0-3",image:"https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?w=400&h=300&fit=crop",badge:"badge-new",badgeTextKey:"tab_sale",seller:"Айгүл К.",sellerAvatar:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",rating:"4.9",reviews:24,condition:"Тамаша",verified:true,description:"Коляска тамаша күйде, 8 ай қолданылды."},
+  {id:1,title:"Қыз балаға киім пакеті 6-12 ай, 20 дана",price:0,oldPrice:null,type:"free",category:"Киім",city:"Астана",district:"Есіл",time:"5 сағат бұрын",age:"6-12",image:"https://images.unsplash.com/photo-1522771753035-a0a1f66cd459?w=400&h=300&fit=crop",badge:"badge-free",badgeTextKey:"tab_free",seller:"Мариям С.",sellerAvatar:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",rating:"5.0",reviews:18,condition:"Жақсы",verified:true,description:"Қыз балаға киім пакетін беремін."},
+  {id:2,title:"Fisher-Price дамытушы орталық",price:null,oldPrice:null,type:"swap",category:"Ойыншықтар",city:"Шымкент",district:"Қаратау",time:"Кеше",age:"6-12",image:"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",badge:"badge-swap",badgeTextKey:"tab_swap",seller:"Гүлнұр А.",sellerAvatar:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",rating:"4.7",reviews:31,condition:"Жақсы",verified:false,description:"Музыка мен жарығы бар дамытушы орталық."},
+  {id:3,title:"Люлька-шырша матрацпен жалға",price:1500,oldPrice:null,type:"rent",category:"Жиһаз",city:"Қарағанды",district:"Қазақ",time:"3 күн бұрын",age:"0-3",image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop",badge:"badge-rent",badgeTextKey:"tab_rent",seller:"Елена В.",sellerAvatar:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",rating:"4.8",reviews:12,condition:"Тамаша",verified:true,description:"Ортопедикалық матрацпен люлька."},
+  {id:4,title:"Cybex Sirona S i-Size автокресло",price:15500,oldPrice:22000,type:"sale",category:"Көлік",city:"Ақтөбе",district:"Орталық",time:"4 сағат бұрын",age:"0-3",image:"https://images.unsplash.com/photo-1604467707321-70c1b85d7cd6?w=400&h=300&fit=crop",badge:"badge-new",badgeTextKey:"tab_sale",seller:"Дәулет Н.",sellerAvatar:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",rating:"5.0",reviews:8,condition:"Жаңа",verified:true,description:"Автокресло 1 жыл бұрын сатып алынды."},
+  {id:5,title:"Reima қысқы комбинезон 80 см",price:3200,oldPrice:null,type:"sale",category:"Киім",city:"Алматы",district:"Медеу",time:"Кеше",age:"6-12",image:"https://images.unsplash.com/photo-1560506840-ec148e82a604?w=400&h=300&fit=crop",badge:null,badgeTextKey:null,seller:"Ирина М.",sellerAvatar:"https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop",rating:"4.9",reviews:45,condition:"Тамаша",verified:true,description:"Reima қысқы комбинезон, 80 см."},
+  {id:6,title:"Kinder ойыншықтар жинағы, 1-3 жас",price:1800,oldPrice:3500,type:"sale",category:"Ойыншықтар",city:"Алматы",district:"Бостандық",time:"1 күн бұрын",age:"1-2",image:"https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=400&h=300&fit=crop",badge:"badge-new",badgeTextKey:"tab_sale",seller:"Айгүл К.",sellerAvatar:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",sellerId:"demo_aigul",rating:"4.9",reviews:7,condition:"Жақсы",verified:true,description:"Kinder ойыншықтар жинағы."},
+  {id:7,title:"Балаларға арналған велосипед 3-5 жас",price:8500,oldPrice:14000,type:"sale",category:"Көлік",city:"Астана",district:"Байқоңыр",time:"2 күн бұрын",age:"3-5",image:"https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&h=300&fit=crop",badge:null,badgeTextKey:null,seller:"Дәулет Н.",sellerAvatar:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",sellerId:"demo_daulet",rating:"5.0",reviews:3,condition:"Тамаша",verified:true,description:"Велосипед 3-5 жас балаларға."},
+  {id:8,title:"Кенгуру-переноска Ergobaby",price:5500,oldPrice:null,type:"sale",category:"Коляскалар",city:"Алматы",district:"Алатау",time:"3 күн бұрын",age:"0-3",image:"https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=400&h=300&fit=crop",badge:null,badgeTextKey:null,seller:"Мариям С.",sellerAvatar:"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop",sellerId:"demo_mariam",rating:"4.8",reviews:15,condition:"Жақсы",verified:true,description:"Ergobaby кенгуру, 0-36 ай."},
+  {id:9,title:"Балалар бөлмесіне жиынтық: кереует+үстел+шкаф",price:85000,oldPrice:120000,type:"sale",category:"Жиһаз",city:"Шымкент",district:"Аль-Фараби",time:"1 апта бұрын",age:"3-5",image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop",badge:null,badgeTextKey:null,seller:"Гүлнұр А.",sellerAvatar:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",sellerId:"demo_gulnur",rating:"4.7",reviews:2,condition:"Тамаша",verified:false,description:"Балалар бөлмесіне толық жиынтық."},
+  {id:10,title:"Зимний комплект для мальчика 2-3 года",price:4200,oldPrice:null,type:"sale",category:"Киім",city:"Астана",district:"Есіл",time:"5 күн бұрын",age:"2-3",image:"https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=400&h=300&fit=crop",badge:null,badgeTextKey:null,seller:"Ирина М.",sellerAvatar:"https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&h=100&fit=crop",sellerId:"demo_irina",rating:"4.9",reviews:22,condition:"Жақсы",verified:true,description:"Қысқы комплект: куртка + шалбар."},
+  {id:11,title:"Ванночка для купания + горка",price:0,oldPrice:null,type:"free",category:"Гигиена",city:"Алматы",district:"Медеу",time:"Бүгін",age:"0-3",image:"https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=300&fit=crop",badge:"badge-free",badgeTextKey:"tab_free",seller:"Елена В.",sellerAvatar:"https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",sellerId:"demo_elena",rating:"4.8",reviews:9,condition:"Жақсы",verified:true,description:"Ванночка мен горканы тегін беремін."}
+];
+
+const consultations=[
+  {name:"Иванова Светлана",specKey:"spec_pediatr",exp:"18",rating:"4.9",count:1240,response:"10 мин",price:800,tags:["Прикорм","Егу","Аллергия"],avatar:"https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&h=200&fit=crop",cls:"pediatric"},
+  {name:"Петрова Анна",specKey:"spec_gv",exp:"12",rating:"5.0",count:890,response:"15 мин",price:600,tags:["Лактация","Прикорм","Мастит"],avatar:"https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=200&h=200&fit=crop",cls:"gv"},
+  {name:"Смирнова Екатерина",specKey:"spec_sleep",exp:"8",rating:"4.8",count:650,response:"20 мин",price:1000,tags:["Ұйықтату","Түнгі ояну"],avatar:"https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop",cls:"sleep"},
+  {name:"Козлов Михаил",specKey:"spec_psycho",exp:"15",rating:"4.9",count:430,response:"30 мин",price:1200,tags:["Бақша","Сөйлеу дамуы"],avatar:"https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&h=200&fit=crop",cls:"psycho"}
+];
+
+// ====== STORAGE ======
+const DB={
+  getUsers(){try{return JSON.parse(localStorage.getItem('ab_users')||'{}')}catch{return{}}},
+  saveUsers(d){localStorage.setItem('ab_users',JSON.stringify(d))},
+  getConvs(){try{return JSON.parse(localStorage.getItem('ab_convs')||'{}')}catch{return{}}},
+  saveConvs(d){localStorage.setItem('ab_convs',JSON.stringify(d))},
+  getMsgs(cid){try{return JSON.parse(localStorage.getItem('ab_msgs_'+cid)||'[]')}catch{return[]}},
+  saveMsgs(cid,m){localStorage.setItem('ab_msgs_'+cid,JSON.stringify(m))},
+  getWishlist(uid){const k=uid?'ab_wl_'+uid:'ab_wishlist';try{return JSON.parse(localStorage.getItem(k)||'[]')}catch{return[]}},
+  saveWishlist(d,uid){localStorage.setItem(uid?'ab_wl_'+uid:'ab_wishlist',JSON.stringify(d))},
+  getUserListings(){try{return JSON.parse(localStorage.getItem('ab_all_listings')||'[]')}catch{return[]}},
+  saveUserListings(d){localStorage.setItem('ab_all_listings',JSON.stringify(d))},
+};
+
+let currentUser=null,currentConvId=null,wishlist=[0,4],currentAgeFilter='all';
+let _nextId=200;
+function genId(){return _nextId++;}
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function nowTs(){return Date.now();}
+function fmtTime(ts){
+  if(!ts)return'';
+  const d=new Date(ts),today=new Date();
+  if(d.toDateString()===today.toDateString())return d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+  const y=new Date(today);y.setDate(today.getDate()-1);
+  if(d.toDateString()===y.toDateString())return currentLang==='ru'?'Вчера':'Кеше';
+  return d.getDate()+'.'+String(d.getMonth()+1).padStart(2,'0');
+}
+
+function getAllListings(){
+  const stored=DB.getUserListings();
+  const deleted=typeof getDeletedListingIds==='function'?getDeletedListingIds():[];
+  return[...stored,...listings.filter(d=>!stored.find(s=>s.id===d.id))].filter(item=>!deleted.includes(item.id));
+}
+
+// ====== CARD BUILDER ======
+function buildCardHTML(item){
+  const inW=wishlist.includes(item.id);
+  const badge=item.badgeTextKey?t(item.badgeTextKey):'';
+  return`<div class="listing-card fade-in" onclick="openProductDetail(${item.id})">
+    <div class="listing-img">
+      <img src="${esc(item.image)}" alt="${esc(item.title)}" loading="lazy">
+      ${item.badge?`<span class="listing-badge ${esc(item.badge)}">${esc(badge)}</span>`:''}
+      <button class="listing-fav ${inW?'active':''}" onclick="event.stopPropagation();toggleWishlist(${item.id})">
+        <i class="${inW?'fas':'far'} fa-heart"></i>
+      </button>
+    </div>
+    <div class="listing-body">
+      <div class="listing-price">${formatPrice(item)}${item.oldPrice?`<span class="old">${item.oldPrice.toLocaleString()} ₸</span>`:''}</div>
+      <div class="listing-title">${esc(item.title)}</div>
+      <div class="listing-meta"><span><i class="fas fa-map-marker-alt"></i> ${esc(item.city)}</span><span><i class="fas fa-clock"></i> ${esc(item.time)}</span></div>
+      <span class="listing-age">${esc(getAgeLabel(item.age))}</span>
+      <div class="listing-footer">
+        <div class="seller">
+          ${item.sellerAvatar
+            ?`<img src="${esc(item.sellerAvatar)}" alt="" class="seller-avatar">`
+            :`<div class="seller-avatar" style="background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem">${esc((item.seller||'?').charAt(0))}</div>`}
+          <div>
+            <div class="seller-name">${esc(item.seller)}${item.verified?` <span class="verified-badge"><i class="fas fa-check"></i> ${t('verified_label')}</span>`:''}</div>
+            <div class="seller-rating"><i class="fas fa-star"></i> ${esc(item.rating)} (${item.reviews})</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderListings(items){
+  if(!items)items=getAllListings();
+  const g=document.getElementById('listingsGrid');if(!g)return;
+  if(!items.length){g.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-search" style="font-size:3rem;margin-bottom:16px;display:block"></i><h3>${currentLang==='ru'?'Ничего не найдено':'Ештеңе табылмады'}</h3></div>`;return;}
+  g.innerHTML=items.map(i=>buildCardHTML(i)).join('');
+}
+
+function renderConsultations(){
+  const g=document.getElementById('consultGrid');if(!g)return;
+  g.innerHTML=consultations.map(doc=>`
+    <div class="consult-card ${doc.cls} fade-in">
+      <div class="consult-header">
+        <img src="${esc(doc.avatar)}" alt="${esc(doc.name)}" class="consult-avatar">
+        <div class="consult-info"><h4>${esc(doc.name)}</h4><div class="spec">${esc(t(doc.specKey))}</div><div class="exp">${esc(getExpLabel(doc.exp))}</div></div>
+      </div>
+      <div class="consult-stats"><span><i class="fas fa-star"></i> ${esc(doc.rating)}</span><span><i class="fas fa-comment"></i> ${doc.count}</span><span><i class="fas fa-clock"></i> ${esc(doc.response)}</span></div>
+      <div class="consult-price">${doc.price} ₸ <span>${t('consult_price')}</span></div>
+      <div class="consult-tags">${doc.tags.map(tag=>`<span class="tag">${esc(tag)}</span>`).join('')}</div>
+      <div class="consult-actions">
+        <button class="btn btn-primary" onclick="openChatWithSeller('${esc(doc.name)}','${esc(doc.avatar)}','')"><i class="fas fa-comment"></i> ${t('consult_write')}</button>
+        <button class="btn btn-outline" onclick="showToast('${esc(doc.name)}')"><i class="fas fa-video"></i> ${t('consult_video')}</button>
+      </div>
+    </div>`).join('');
+}
+
+// ====== MODALS ======
+function openModal(id){const el=document.getElementById(id);if(!el)return;el.classList.add('active');document.body.style.overflow='hidden';}
+function closeModal(id){const el=document.getElementById(id);if(el)el.classList.remove('active');if(!document.querySelector('.modal-overlay.active'))document.body.style.overflow='';}
+function switchAuthTab(type){if(type==='login'){closeModal('registerModal');openModal('loginModal');}else{closeModal('loginModal');openModal('registerModal');}}
+
+// ====== AUTH ======
+function updateAuthUI(){
+  const ab=document.getElementById('authButtons'),um=document.getElementById('userMenu'),un=document.getElementById('userNameDisplay');
+  if(currentUser){
+    if(ab)ab.style.display='none';if(um)um.classList.add('active');if(un)un.textContent=currentUser.name;
+    const av=document.getElementById('headerAvatarImg');
+    if(av){if(currentUser.avatar){av.src=currentUser.avatar;av.style.display='';}else{av.style.display='none';}}
+    let ie=document.getElementById('userInitials');
+    if(!currentUser.avatar){
+      if(!ie){ie=document.createElement('div');ie.id='userInitials';ie.style.cssText='width:34px;height:34px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;cursor:pointer;flex-shrink:0;';ie.onclick=()=>openProfilePage();av?.parentNode?.insertBefore(ie,av.nextSibling);}
+      if(ie){ie.style.display='flex';ie.textContent=(currentUser.name||'?').charAt(0).toUpperCase();}
+    }else if(ie)ie.style.display='none';
+  }else{if(ab)ab.style.display='flex';if(um)um.classList.remove('active');}
+  updateChatBadge();updateWishlistBadge();
+}
+
+function handleLogin(e){
+  e.preventDefault();
+  const email=document.getElementById('loginEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('loginPassword').value;
+  const isRu=currentLang==='ru';
+  if(!email){showToast(isRu?'Введите Email':'Email енгізіңіз','error');return;}
+  if(!pass){showToast(isRu?'Введите пароль':'Пароль енгізіңіз','error');return;}
+  const users=DB.getUsers(),user=Object.values(users).find(u=>u.email===email);
+  if(!user){showToast(isRu?'Пользователь не найден':'Пайдаланушы табылмады','error');return;}
+  if(user.password!==btoa(unescape(encodeURIComponent(pass)))){showToast(isRu?'Неверный пароль':'Құпия сөз дұрыс емес','error');document.getElementById('loginPassword').value='';return;}
+  currentUser={id:user.id,name:user.name,email:user.email,avatar:user.avatar,city:user.city};
+  localStorage.setItem('ab_session',JSON.stringify(currentUser));
+  updateAuthUI();closeModal('loginModal');document.getElementById('loginForm').reset();
+  wishlist=DB.getWishlist(currentUser.id).filter(id=>typeof id==='number');
+  updateWishlistBadge();renderListings();
+  showToast(t('welcome')+', '+currentUser.name+'!','success');
+}
+
+function handleRegister(e){
+  e.preventDefault();
+  const name=document.getElementById('regName').value.trim();
+  const sur=document.getElementById('regSurname').value.trim();
+  const email=document.getElementById('regEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('regPassword').value;
+  const pass2=document.getElementById('regPassword2').value;
+  const city=document.getElementById('regCity').value;
+  const isRu=currentLang==='ru';
+  if(!name){showToast(isRu?'Введите имя':'Атыңызды енгізіңіз','error');return;}
+  if(!email||!email.includes('@')){showToast(isRu?'Введите корректный Email':'Дұрыс Email енгізіңіз','error');return;}
+  if(pass.length<8){showToast(t('pass_short'),'error');return;}
+  if(pass!==pass2){showToast(t('pass_mismatch'),'error');return;}
+  const users=DB.getUsers();
+  if(Object.values(users).find(u=>u.email===email)){showToast(isRu?'Email уже зарегистрирован':'Email бұрын тіркелген','error');return;}
+  const id='user_'+Date.now(),fullName=name+(sur?' '+sur.charAt(0)+'.':'');
+  users[id]={id,name:fullName,email,phone:document.getElementById('regPhone').value,password:btoa(unescape(encodeURIComponent(pass))),city,avatar:null};
+  DB.saveUsers(users);
+  currentUser={id,name:fullName,email,avatar:null,city};
+  localStorage.setItem('ab_session',JSON.stringify(currentUser));
+  updateAuthUI();closeModal('registerModal');document.getElementById('registerForm').reset();
+  wishlist=DB.getWishlist(id);updateWishlistBadge();renderListings();
+  showToast(t('welcome')+', '+fullName+'!','success');
+}
+
+function logout(){currentUser=null;localStorage.removeItem('ab_session');wishlist=[];updateWishlistBadge();updateAuthUI();renderListings();showToast(t('logged_out'));}
+
+function restoreSession(){
+  try{
+    const s=localStorage.getItem('ab_session');if(!s)return;
+    currentUser=JSON.parse(s);
+    const users=DB.getUsers();if(users[currentUser.id])currentUser.avatar=users[currentUser.id].avatar||currentUser.avatar;
+    localStorage.setItem('ab_session',JSON.stringify(currentUser));
+    updateAuthUI();wishlist=DB.getWishlist(currentUser.id).filter(id=>typeof id==='number');updateWishlistBadge();
+  }catch{localStorage.removeItem('ab_session');}
+}
+
+function checkAuthAndOpenAdd(){
+  if(!currentUser){showToast(currentLang==='ru'?'Войдите, чтобы разместить объявление':'Хабарландыру жариялау үшін кіріңіз','error');openModal('loginModal');return;}
+  openModal('addModal');
+}
+
+// ====== PHOTO UPLOAD ======
+let uploadedPhotos=[];
+function handlePhotoSelect(e){processPhotoFiles(Array.from(e.target.files));e.target.value='';}
+function handlePhotoDrop(e){e.preventDefault();document.getElementById('photoUploadZone').classList.remove('drag-over');processPhotoFiles(Array.from(e.dataTransfer.files).filter(f=>f.type.startsWith('image/')));}
+function processPhotoFiles(files){
+  const rem=5-uploadedPhotos.length;if(rem<=0){showToast('Максимум 5 фото','error');return;}
+  files.slice(0,rem).filter(f=>f.size<=5*1024*1024&&f.type.startsWith('image/')).forEach(file=>{
+    const r=new FileReader();r.onload=e=>{uploadedPhotos.push({dataUrl:e.target.result,name:file.name});renderPhotoPreviews();};r.readAsDataURL(file);
+  });
+}
+function renderPhotoPreviews(){
+  const grid=document.getElementById('photoPreviewGrid'),zone=document.getElementById('photoUploadZone');
+  if(!uploadedPhotos.length){grid.style.display='none';zone.style.display='';return;}
+  grid.style.display='grid';zone.style.display=uploadedPhotos.length>=5?'none':'';
+  grid.innerHTML=uploadedPhotos.map((p,i)=>`<div class="photo-preview-item${i===0?' main-photo':''}"><img src="${p.dataUrl}" alt=""><button class="remove-photo" onclick="removePhoto(${i})"><i class="fas fa-times"></i></button></div>`).join('');
+  const lbl=document.getElementById('photoUploadLabel');
+  if(lbl){const rem=5-uploadedPhotos.length;lbl.textContent=(currentLang==='ru'?`Добавлено ${uploadedPhotos.length}/5`:`${uploadedPhotos.length}/5 фото қосылды`)+(rem>0?(currentLang==='ru'?` (ещё ${rem})`:`(тағы ${rem})`):'');}
+}
+function removePhoto(i){uploadedPhotos.splice(i,1);renderPhotoPreviews();}
+function resetPhotoUpload(){uploadedPhotos=[];const g=document.getElementById('photoPreviewGrid');if(g){g.innerHTML='';g.style.display='none';}const z=document.getElementById('photoUploadZone');if(z)z.style.display='';const lbl=document.getElementById('photoUploadLabel');if(lbl)lbl.textContent=currentLang==='ru'?'Выбрать фото или перетащить':'Фото таңдау немесе сүйреу';}
+
+// ====== LISTINGS ======
+function handleAddListing(e){
+  e.preventDefault();
+  if(!currentUser){showToast(currentLang==='ru'?'Войдите в аккаунт':'Аккаунтқа кіріңіз','error');openModal('loginModal');return;}
+  const title=document.getElementById('addTitle').value.trim();
+  const category=document.getElementById('addCategory').value;
+  const type=document.getElementById('addType').value;
+  const age=document.getElementById('addAge').value;
+  const price=type==='free'?0:(parseInt(document.getElementById('addPrice').value)||0);
+  const city=document.getElementById('addCity').value;
+  const district=document.getElementById('addDistrict').value.trim();
+  const desc=document.getElementById('addDesc').value.trim();
+  const isRu=currentLang==='ru';
+  if(!title){showToast(isRu?'Введите название':'Атауын енгізіңіз','error');return;}
+  if(!category){showToast(isRu?'Выберите категорию':'Санатты таңдаңыз','error');return;}
+  if(!city){showToast(isRu?'Выберите город':'Қаланы таңдаңыз','error');return;}
+  if(!desc){showToast(isRu?'Добавьте описание':'Сипаттама жазыңыз','error');return;}
+  const bMap={free:'badge-free',swap:'badge-swap',rent:'badge-rent',sale:'badge-new'};
+  const bKeyMap={free:'tab_free',swap:'tab_swap',rent:'tab_rent',sale:'tab_sale'};
+  const newL={id:genId(),title,price,oldPrice:null,type,category,city,district,time:isRu?'Только что':'Жаңа ғана',age,
+    image:uploadedPhotos.length?uploadedPhotos[0].dataUrl:"https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=300&fit=crop",
+    images:uploadedPhotos.map(p=>p.dataUrl),badge:bMap[type],badgeTextKey:bKeyMap[type],
+    seller:currentUser.name,sellerAvatar:currentUser.avatar||null,sellerId:currentUser.id,
+    rating:"5.0",reviews:0,condition:"Тамаша",verified:false,description:desc};
+  listings.unshift(newL);
+  const stored=DB.getUserListings();if(!stored.find(l=>l.id===newL.id)){stored.unshift(newL);DB.saveUserListings(stored);}
+  renderListings();closeModal('addModal');resetPhotoUpload();showToast(t('listing_added'),'success');
+  document.getElementById('addListingForm').reset();
+}
+
+function openProductDetail(id){
+  const item=getAllListings().find(l=>l.id===id);if(!item){showToast('Хабарландыру табылмады','error');return;}
+  const inW=wishlist.includes(item.id);
+  document.getElementById('productDetailContent').innerHTML=`
+    <div class="product-images">
+      <img src="${esc(item.image)}" alt="${esc(item.title)}" id="mainProductImage">
+      <div class="thumbs">${[item.image,'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=300&fit=crop','https://images.unsplash.com/photo-1560506840-ec148e82a604?w=400&h=300&fit=crop'].map((s,i)=>`<img src="${esc(s)}" class="${i===0?'active':''}" onclick="changeProductImage(this,'${esc(s)}')" alt="">`).join('')}</div>
+    </div>
+    <div class="product-info">
+      <h2>${esc(item.title)}</h2>
+      <div class="price">${formatPrice(item)}${item.oldPrice?`<span class="old">${item.oldPrice.toLocaleString()} ₸</span>`:''}</div>
+      <div class="product-meta">
+        <span><i class="fas fa-map-marker-alt"></i> ${esc(item.city)}${item.district?', '+esc(item.district):''}</span>
+        <span><i class="fas fa-clock"></i> ${esc(item.time)}</span>
+        <span><i class="fas fa-tag"></i> ${esc(item.category)}</span>
+        <span><i class="fas fa-child"></i> ${esc(getAgeLabel(item.age))}</span>
+      </div>
+      <div class="product-desc"><h4 style="margin-bottom:8px">${t('description')}</h4><p>${esc(item.description)}</p></div>
+      <div class="product-actions">
+        <button class="btn btn-primary btn-lg" onclick="openChatWithSeller('${esc(item.seller)}','${esc(item.sellerAvatar)}','${esc(item.title)}',${item.id});closeModal('productModal')"><i class="fas fa-comment"></i> ${t('seller_chat')}</button>
+        <button class="btn btn-outline btn-lg" onclick="showToast(t('phone_show'))"><i class="fas fa-phone"></i> ${t('call')}</button>
+        <button class="btn btn-outline btn-lg" id="favBtn_${item.id}" onclick="toggleWishlist(${item.id});updateProductFavBtn(${item.id})">
+          <i class="${inW?'fas':'far'} fa-heart"></i> <span>${inW?t('saved'):t('save')}</span>
+        </button>
+      </div>
+      <div class="seller-card">
+        ${item.sellerAvatar?`<img src="${esc(item.sellerAvatar)}" alt="">`:`<div style="width:56px;height:56px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.2rem">${esc((item.seller||'?').charAt(0))}</div>`}
+        <div><h4>${esc(item.seller)}${item.verified?` <span class="verified-badge"><i class="fas fa-check"></i> ${t('verified_label')}</span>`:''}</h4><p><i class="fas fa-star" style="color:var(--accent)"></i> ${esc(item.rating)} (${item.reviews}) · ${esc(item.city)}</p></div>
+        <button class="btn btn-primary btn-sm" style="margin-left:auto" onclick="openChatWithSeller('${esc(item.seller)}','${esc(item.sellerAvatar)}','${esc(item.title)}',${item.id});closeModal('productModal')"><i class="fas fa-comment"></i></button>
+      </div>
+    </div>`;
+  openModal('productModal');
+}
+
+function updateProductFavBtn(id){
+  const btn=document.getElementById('favBtn_'+id);if(!btn)return;
+  const inW=wishlist.includes(id);
+  btn.querySelector('i').className=(inW?'fas':'far')+' fa-heart';
+  btn.querySelector('span').textContent=inW?t('saved'):t('save');
+}
+function changeProductImage(th,src){document.getElementById('mainProductImage').src=src;document.querySelectorAll('.thumbs img').forEach(t=>t.classList.remove('active'));th.classList.add('active');}
+
+// ====== NAV ======
+function setActiveNav(i){document.querySelectorAll('.nav-links a').forEach((a,j)=>a.classList.toggle('active',i===j));}
+function showHome(){
+  ['categoryPage','wishlistPage'].forEach(id=>document.getElementById(id).style.display='none');
+  ['mainContent','heroSection','mainTabs'].forEach(id=>document.getElementById(id).style.display=id==='mainTabs'?'flex':'block');
+  renderListings();setActiveNav(0);window.scrollTo({top:0,behavior:'smooth'});
+}
+function showFreeItems(){showHome();const ft=document.querySelector('.tab-btn[data-type="free"]');if(ft)switchTab(ft,'free');scrollToSection('listings');setActiveNav(2);}
+function showCategory(name){
+  ['mainContent','heroSection','mainTabs'].forEach(id=>document.getElementById(id).style.display='none');
+  document.getElementById('wishlistPage').style.display='none';
+  document.getElementById('categoryPage').style.display='block';
+  document.getElementById('categoryTitle').textContent=name;
+  renderCategoryListings(getAllListings().filter(l=>l.category===name));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderCategoryListings(items){
+  const g=document.getElementById('categoryListings');if(!g)return;
+  g.innerHTML=items.length?items.map(i=>buildCardHTML(i)).join(''):`<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-search" style="font-size:3rem;margin-bottom:16px;display:block"></i><h3>Ештеңе табылмады</h3></div>`;
+}
+function filterListings(){
+  const city=document.getElementById('cityFilter').value;
+  const price=document.getElementById('priceFilter').value;
+  const search=document.getElementById('categorySearch').value.toLowerCase();
+  const name=document.getElementById('categoryTitle').textContent;
+  let f=getAllListings().filter(l=>l.category===name);
+  if(city)f=f.filter(l=>l.city===city);
+  if(price){const p=price.replace('+','').split('-'),min=parseInt(p[0]),max=p[1]?parseInt(p[1]):Infinity;f=f.filter(l=>l.price!=null&&l.price>0&&l.price>=min&&l.price<=max);}
+  if(search)f=f.filter(l=>l.title.toLowerCase().includes(search));
+  renderCategoryListings(f);
+}
+function switchTab(btn,type){
+  document.querySelectorAll('.tab-btn').forEach(t=>t.classList.remove('active'));btn.classList.add('active');
+  let f=type==='all'?getAllListings():getAllListings().filter(l=>l.type===type);
+  if(currentAgeFilter!=='all')f=f.filter(l=>l.age===currentAgeFilter);
+  const titles={all:t('new_listings'),sale:t('tab_sale'),swap:t('tab_swap'),free:t('tab_free'),rent:t('tab_rent')};
+  document.getElementById('listingsTitle').textContent=titles[type]||t('new_listings');
+  renderListings(f);
+}
+function doSearch(){
+  const q=document.getElementById('searchInput').value.toLowerCase().trim();if(!q){showToast(t('search_hint'));return;}
+  const f=getAllListings().filter(l=>l.title.toLowerCase().includes(q)||l.category.toLowerCase().includes(q)||l.city.toLowerCase().includes(q)||l.seller.toLowerCase().includes(q));
+  document.getElementById('listingsTitle').textContent='"'+q+'"';renderListings(f);scrollToSection('listings');
+}
+function scrollToSection(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+function toggleMobileMenu(){const m=document.getElementById('mobileMenu');m.classList.toggle('active');}
+
+// ====== WISHLIST ======
+function toggleWishlist(id){
+  const i=wishlist.indexOf(id);
+  if(i>-1){wishlist.splice(i,1);showToast(t('fav_removed'));}else{wishlist.push(id);showToast(t('fav_added'),'success');}
+  updateWishlistBadge();renderListings();
+  if(document.getElementById('wishlistPage').style.display!=='none')showWishlist();
+}
+function updateWishlistBadge(){const b=document.getElementById('wishlistBadge');if(!b)return;b.textContent=wishlist.length;b.style.display=wishlist.length>0?'':'none';}
+function showWishlist(){
+  ['mainContent','heroSection','mainTabs','categoryPage'].forEach(id=>document.getElementById(id).style.display='none');
+  document.getElementById('wishlistPage').style.display='block';
+  const items=getAllListings().filter(l=>wishlist.includes(l.id));
+  const g=document.getElementById('wishlistGrid');
+  g.innerHTML=items.length?items.map(i=>buildCardHTML(i)).join(''):`<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--gray)"><i class="fas fa-heart" style="font-size:3rem;margin-bottom:16px;display:block;color:var(--primary)"></i><h3>${t('wishlist_title')}</h3><p>${t('wishlist_sub')}</p></div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ====== CHAT ======
+function updateChatBadge(){
+  const b=document.getElementById('chatBadge');if(!b)return;
+  if(!currentUser){b.style.display='none';return;}
+  const n=Object.values(DB.getConvs()).filter(c=>c.user1===currentUser.id||c.user2===currentUser.id).length;
+  b.textContent=n;b.style.display=n>0?'':'none';
+}
+function openChatWithSeller(sellerName,sellerAvatar,listingTitle,listingId){
+  if(!currentUser){showToast(currentLang==='ru'?'Войдите, чтобы написать продавцу':'Сатушыға жазу үшін кіріңіз','error');openModal('loginModal');return;}
+  const users=DB.getUsers();
+  let sellerId=Object.values(users).find(u=>u.name===sellerName)?.id||'pseudo_'+sellerName.replace(/\s/g,'_');
+  if(sellerId===currentUser.id){showToast(currentLang==='ru'?'Это ваше объявление':'Бұл сіздің хабарландырыңыз');return;}
+  const convs=DB.getConvs();
+  let conv=Object.values(convs).find(c=>((c.user1===currentUser.id&&c.user2===sellerId)||(c.user1===sellerId&&c.user2===currentUser.id))&&(!listingId||c.listingId===listingId));
+  if(!conv){
+    const cid='conv_'+uid();
+    conv={id:cid,user1:currentUser.id,user1Name:currentUser.name,user1Avatar:currentUser.avatar,user2:sellerId,user2Name:sellerName,user2Avatar:sellerAvatar,listingId:listingId||null,listingTitle:listingTitle||null,createdAt:nowTs(),updatedAt:nowTs()};
+    convs[cid]=conv;DB.saveConvs(convs);
+  }
+  openChatPage(conv.id);
+}
+function openChatModal(){if(!currentUser){showToast(t('login_first'),'error');openModal('loginModal');return;}openChatPage(currentConvId);}
+function openChatPage(convId){
+  if(!currentUser){showToast(currentLang==='ru'?'Войдите':'Кіріңіз','error');openModal('loginModal');return;}
+  document.getElementById('chatPage').style.display='block';document.body.style.overflow='hidden';
+  renderChatList();if(convId)selectConv(convId);else showNoChatSelected();
+}
+function closeChatPage(){document.getElementById('chatPage').style.display='none';document.body.style.overflow='';}
+function renderChatList(filter=''){
+  const convs=DB.getConvs(),list=document.getElementById('chatList');if(!list||!currentUser)return;
+  const myC=Object.values(convs).filter(c=>c.user1===currentUser.id||c.user2===currentUser.id).sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0));
+  const f=filter?myC.filter(c=>(c.user1===currentUser.id?c.user2Name:c.user1Name).toLowerCase().includes(filter.toLowerCase())):myC;
+  if(!f.length){list.innerHTML=`<div class="chat-empty-state"><i class="fas fa-comments"></i><p>${currentLang==='ru'?'Нет диалогов':'Сөйлесу жоқ'}</p></div>`;return;}
+  list.innerHTML=f.map(c=>{
+    const oName=c.user1===currentUser.id?c.user2Name:c.user1Name;
+    const oAv=c.user1===currentUser.id?c.user2Avatar:c.user1Avatar;
+    const msgs=DB.getMsgs(c.id),last=msgs[msgs.length-1];
+    const preview=last?(last.senderId===currentUser.id?(currentLang==='ru'?'Вы: ':'Сіз: ')+last.text:last.text):(currentLang==='ru'?'Нет сообщений':'Хабарлама жоқ');
+    return`<div class="chat-item${c.id===currentConvId?' active':''}" onclick="selectConv('${c.id}')" data-cid="${c.id}">
+      <div class="chat-item-avatar">${oAv?`<img src="${esc(oAv)}" alt="">`:`<div style="width:48px;height:48px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem">${esc((oName||'?').charAt(0))}</div>`}</div>
+      <div class="chat-item-body"><div class="chat-item-top"><span class="chat-item-name">${esc(oName)}</span><span class="chat-item-time">${esc(fmtTime(last?last.ts:c.createdAt))}</span></div><div class="chat-item-preview">${esc(preview)}</div></div>
+    </div>`;
+  }).join('');
+  updateChatBadge();
+}
+function filterChatList(v){renderChatList(v);}
+function selectConv(cid){
+  currentConvId=cid;const conv=DB.getConvs()[cid];if(!conv)return;
+  const oName=conv.user1===currentUser.id?conv.user2Name:conv.user1Name;
+  const oAv=conv.user1===currentUser.id?conv.user2Avatar:conv.user1Avatar;
+  document.getElementById('convName').textContent=oName;
+  document.getElementById('convStatus').textContent=currentLang==='ru'?'Профиль пользователя':'Пайдаланушы профилі';
+  const av=document.getElementById('convAvatar');if(av){av.src=oAv||'';av.style.display=oAv?'':'';}
+  const ref=document.getElementById('chatListingRef');
+  if(conv.listingId&&conv.listingTitle){
+    const item=listings.find(l=>l.id===conv.listingId);
+    document.getElementById('chatListingTitle').textContent=conv.listingTitle;
+    document.getElementById('chatListingPrice').textContent=item?(item.price>0?item.price.toLocaleString()+' ₸':(currentLang==='ru'?'Бесплатно':'Тегін')):'';
+    document.getElementById('chatListingImg').src=item?item.image:'';ref.style.display='flex';
+  }else ref.style.display='none';
+  document.getElementById('chatNoConv').style.display='none';
+  const area=document.getElementById('chatConvArea');area.style.display='flex';area.style.flexDirection='column';area.style.flex='1';area.style.overflow='hidden';
+  document.getElementById('deleteConfirm').style.display='none';
+  renderMessages(cid);
+  document.querySelectorAll('.chat-item').forEach(el=>el.classList.toggle('active',el.dataset.cid===cid));
+  if(window.innerWidth<=700)document.getElementById('chatSidebar').classList.add('slide-out');
+  setTimeout(()=>document.getElementById('chatInput')?.focus(),100);
+}
+function showNoChatSelected(){document.getElementById('chatNoConv').style.display='flex';document.getElementById('chatConvArea').style.display='none';currentConvId=null;}
+function showChatSidebarMobile(){document.getElementById('chatSidebar').classList.remove('slide-out');}
+function renderMessages(cid){
+  const box=document.getElementById('chatMessages');if(!box)return;
+  const msgs=DB.getMsgs(cid);box.innerHTML='';
+  if(!msgs.length){box.innerHTML=`<div style="text-align:center;color:var(--gray);padding:40px"><i class="fas fa-comment-dots" style="font-size:2.5rem;display:block;margin-bottom:12px;opacity:0.2"></i><p>${currentLang==='ru'?'Напишите первое сообщение!':'Алғашқы хабарламаңызды жіберіңіз!'}</p></div>`;return;}
+  let lastDate='';
+  msgs.forEach(m=>{
+    const isMine=m.senderId===currentUser?.id;
+    const d=new Date(m.ts);const ds=d.toLocaleDateString(currentLang==='ru'?'ru-RU':'kk-KZ',{day:'numeric',month:'long'});
+    if(ds!==lastDate){const div=document.createElement('div');div.className='msg-date-divider';div.textContent=ds;box.appendChild(div);lastDate=ds;}
+    const el=document.createElement('div');el.className='message '+(isMine?'sent':'received');
+    const b=document.createElement('div');b.className='msg-bubble';b.textContent=m.text;
+    const meta=document.createElement('div');meta.className='msg-meta';meta.innerHTML=`<span>${fmtTime(m.ts)}</span>${isMine?'<i class="fas fa-check-double msg-status"></i>':''}`;
+    el.appendChild(b);el.appendChild(meta);box.appendChild(el);
+  });
+  box.scrollTop=box.scrollHeight;
+}
+function sendMessage(){
+  if(!currentUser||!currentConvId)return;
+  const input=document.getElementById('chatInput'),text=input.value.trim();if(!text)return;
+  const msg={id:'msg_'+uid(),conversationId:currentConvId,senderId:currentUser.id,text,ts:nowTs()};
+  const msgs=DB.getMsgs(currentConvId);msgs.push(msg);DB.saveMsgs(currentConvId,msgs);
+  const convs=DB.getConvs();if(convs[currentConvId]){convs[currentConvId].updatedAt=nowTs();DB.saveConvs(convs);}
+  input.value='';autoResizeTextarea(input);
+  const box=document.getElementById('chatMessages');
+  const ph=box.querySelector('div[style*="text-align:center"]');if(ph)ph.remove();
+  const d=new Date(msg.ts);const ds=d.toLocaleDateString(currentLang==='ru'?'ru-RU':'kk-KZ',{day:'numeric',month:'long'});
+  const lastDiv=box.querySelector('.msg-date-divider:last-of-type');
+  if(!lastDiv||lastDiv.textContent!==ds){const div=document.createElement('div');div.className='msg-date-divider';div.textContent=ds;box.appendChild(div);}
+  const el=document.createElement('div');el.className='message sent';
+  const b=document.createElement('div');b.className='msg-bubble';b.textContent=text;
+  const meta=document.createElement('div');meta.className='msg-meta';meta.innerHTML=`<span>${fmtTime(msg.ts)}</span><i class="fas fa-check-double msg-status"></i>`;
+  el.appendChild(b);el.appendChild(meta);box.appendChild(el);box.scrollTop=box.scrollHeight;
+  renderChatList(document.getElementById('chatSearch')?.value||'');
+}
+function autoResizeTextarea(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+function confirmDeleteConv(){const el=document.getElementById('deleteConfirm');el.style.display=el.style.display==='none'?'flex':'none';}
+function deleteConv(){
+  if(!currentConvId)return;const convs=DB.getConvs();delete convs[currentConvId];DB.saveConvs(convs);
+  localStorage.removeItem('ab_msgs_'+currentConvId);currentConvId=null;showNoChatSelected();renderChatList();
+  showToast(currentLang==='ru'?'Диалог удалён':'Сөйлесу жойылды');
+}
+
+// ====== UI ======
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;
+  t.className='toast show '+(type||'');t.querySelector('i').className=type==='error'?'fas fa-times-circle':'fas fa-check-circle';
+  clearTimeout(t._timer);t._timer=setTimeout(()=>t.classList.remove('show'),3000);
+}
+function toggleDark(){const d=document.body.classList.toggle('dark');localStorage.setItem('ab_dark',d?'1':'0');updateDarkIcon(d);}
+function updateDarkIcon(d){const cls=d?'fas fa-sun':'fas fa-moon';['darkIcon','darkIconMob'].forEach(id=>{const el=document.getElementById(id);if(el)el.className=cls;});const lbl=document.getElementById('darkLabelMob');if(lbl)lbl.textContent=d?(currentLang==='ru'?'Светлая тема':'Ашық тема'):(currentLang==='ru'?'Тёмная тема':'Қараңғы тема');}
+function restoreDark(){if(localStorage.getItem('ab_dark')==='1'){document.body.classList.add('dark');updateDarkIcon(true);}}
+function setMbn(i){for(let j=0;j<5;j++){const el=document.getElementById('mbn'+j);if(el)el.classList.toggle('active',i===j);}}
+function updateMbnLabels(){const isRu=currentLang==='ru';const labels=isRu?['Главная','Бесплатно','Разместить','Чат','Профиль']:['Басты','Тегін','Жариялау','Чат','Профиль'];['mbnHome','mbnFree','mbnPost','mbnChat','mbnProfile'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=labels[i];});}
+
+// ====== VERIFY ======
+function openVerifyModal(){
+  if(!currentUser)return;
+  const eEl=document.getElementById('vstepEmailAddr');if(eEl)eEl.textContent=currentUser.email||'';
+  const ver=JSON.parse(localStorage.getItem('ab_verified_'+currentUser.id)||'{}');
+  ['email','phone'].forEach(type=>{
+    const step=document.getElementById('vstep_'+type);if(!step)return;
+    step.classList.toggle('completed',!!ver[type]);
+    const btn=document.getElementById('vstep'+type.charAt(0).toUpperCase()+type.slice(1)+'Btn');
+    if(btn)btn.style.display=ver[type]?'none':'';
+  });
+}
+function sendVerifyCode(type){
+  const code=Math.floor(100000+Math.random()*900000).toString();localStorage.setItem('ab_vcode_'+type,code);
+  const inp=document.getElementById('vstep'+type.charAt(0).toUpperCase()+type.slice(1)+'Input');if(inp)inp.style.display='';
+  showToast((currentLang==='ru'?'Код отправлен: ':'Код жіберілді: ')+code,'success');
+}
+function verifyCode(type){
+  const inp=document.getElementById(type==='email'?'emailCodeInput':'phoneCodeInput');if(!inp)return;
+  const entered=inp.value.trim(),correct=localStorage.getItem('ab_vcode_'+type);
+  if(entered===correct){
+    const ver=JSON.parse(localStorage.getItem('ab_verified_'+currentUser.id)||'{}');ver[type]=true;
+    localStorage.setItem('ab_verified_'+currentUser.id,JSON.stringify(ver));openVerifyModal();
+    showToast(currentLang==='ru'?'✓ Подтверждено!':'✓ Расталды!','success');
+  }else showToast(currentLang==='ru'?'Неверный код':'Код дұрыс емес','error');
+}
+
+// ====== PROFILE ======
+function openProfilePage(){if(!currentUser){openModal('loginModal');return;}document.getElementById('profilePage').style.display='block';document.body.style.overflow='hidden';renderProfilePage();}
+function closeProfilePage(){document.getElementById('profilePage').style.display='none';document.body.style.overflow='';}
+function renderProfilePage(){
+  if(!currentUser)return;const isRu=currentLang==='ru';
+  const av=currentUser.avatar,aImg=document.getElementById('profileAvatarImg'),aInit=document.getElementById('profileInitialsPlaceholder');
+  if(av){if(aImg){aImg.src=av;aImg.style.display='';}if(aInit)aInit.style.display='none';}
+  else{if(aImg)aImg.style.display='none';if(aInit){aInit.style.display='flex';aInit.textContent=(currentUser.name||'?').charAt(0).toUpperCase();}}
+  const s=(id,txt)=>{const el=document.getElementById(id);if(el)el.textContent=txt;};
+  s('profileDisplayName',currentUser.name||'');s('profileDisplayEmail',currentUser.email||'');s('profileDisplayCity',currentUser.city||'');
+  const mine=getAllListings().filter(l=>l.sellerId===currentUser.id);
+  const chats=Object.values(DB.getConvs()).filter(c=>c.user1===currentUser.id||c.user2===currentUser.id).length;
+  s('statListings',mine.length);s('statWishlist',wishlist.length);s('statChats',chats);
+  s('statListingsLbl',isRu?'Объявления':'Хабарландыру');s('statWishlistLbl',isRu?'Избранное':'Тілектер');s('statChatsLbl',isRu?'Сообщения':'Хабарламалар');
+  const labels={profActionsTitle:isRu?'Быстрые действия':'Жылдам әрекеттер',profInfoTitle:isRu?'Личные данные':'Жеке деректер',profPassTitle:isRu?'Изменить пароль':'Пароль өзгерту',profMyListTitle:isRu?'Мои объявления':'Менің хабарландырулар',profSettingsTitle:isRu?'Настройки':'Баптаулар',profSaveBtn:isRu?'Сохранить':'Сақтау',profChangePassBtn:isRu?'Изменить пароль':'Парольді өзгерту',profLogoutBtn:isRu?'Выйти из аккаунта':'Аккаунттан шығу',profBtnPost:isRu?'Разместить':'Жариялау',profBtnWish:isRu?'Избранное':'Тілектер',profBtnChat:isRu?'Сообщения':'Хабарламалар',profBtnConsult:isRu?'Консультация':'Кеңес',profAddBtn:isRu?'Разместить':'Жариялау',profDarkLabel:isRu?'Тёмная тема':'Қараңғы тема',profLangLabel:isRu?'Язык / Тіл':'Тіл / Язык',profNotifLabel:isRu?'Уведомления':'Хабарландырулар',profSafeLabel:isRu?'Безопасность':'Қауіпсіздік',profNameLabel:isRu?'Имя':'Аты-жөні',profPhoneLabel:isRu?'Телефон':'Телефон',profCityLabel:isRu?'Город':'Қала',profOldPassLabel:isRu?'Старый пароль':'Ескі пароль',profNewPassLabel:isRu?'Новый пароль':'Жаңа пароль',profNewPass2Label:isRu?'Повторите':'Қайталау'};
+  Object.entries(labels).forEach(([id,txt])=>s(id,txt));
+  const users=DB.getUsers(),fu=users[currentUser.id]||{};
+  const nameEl=document.getElementById('profileName'),phoneEl=document.getElementById('profilePhone'),cityEl=document.getElementById('profileCityInput');
+  if(nameEl)nameEl.value=currentUser.name||'';if(phoneEl)phoneEl.value=fu.phone||'';if(cityEl)cityEl.value=currentUser.city||'';
+  renderProfileListings();
+}
+function renderProfileListings(){
+  const g=document.getElementById('profileListingsGrid');if(!g||!currentUser)return;
+  const isRu=currentLang==='ru',mine=getAllListings().filter(l=>l.sellerId===currentUser.id);
+  if(!mine.length){g.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:32px;color:var(--gray)"><i class="fas fa-box-open" style="font-size:2.5rem;display:block;margin-bottom:10px;opacity:0.25"></i><p style="font-weight:600">${isRu?'Нет объявлений':'Хабарландыру жоқ'}</p></div>`;return;}
+  g.innerHTML=mine.map(item=>`<div class="prof-listing-item" onclick="openProductDetail(${item.id});closeProfilePage()"><img src="${esc(item.image)}" alt="" loading="lazy"><button class="pdel" onclick="event.stopPropagation();deleteMyListing(${item.id})"><i class="fas fa-trash-alt"></i></button><div style="padding:10px"><div style="font-weight:700;font-size:0.82rem;line-height:1.3;margin-bottom:4px">${esc(item.title)}</div><div style="color:var(--primary);font-weight:700;font-size:0.88rem">${formatPrice(item)}</div><div style="font-size:0.72rem;color:var(--gray);margin-top:3px"><i class="fas fa-map-marker-alt"></i> ${esc(item.city)}</div></div></div>`).join('');
+}
+function saveProfileInfo(){
+  if(!currentUser)return;const isRu=currentLang==='ru';
+  const name=document.getElementById('profileName').value.trim();
+  if(!name){showToast(isRu?'Введите имя':'Атыңызды енгізіңіз','error');return;}
+  const phone=document.getElementById('profilePhone').value.trim();
+  const city=document.getElementById('profileCityInput').value;
+  const users=DB.getUsers();if(users[currentUser.id]){users[currentUser.id].name=name;users[currentUser.id].phone=phone;users[currentUser.id].city=city;DB.saveUsers(users);}
+  currentUser.name=name;currentUser.city=city;localStorage.setItem('ab_session',JSON.stringify(currentUser));
+  updateAuthUI();document.getElementById('profileDisplayName').textContent=name;document.getElementById('profileDisplayCity').textContent=city||'—';
+  showToast(t('profile_saved'),'success');
+}
+function changePassword(){
+  if(!currentUser)return;const isRu=currentLang==='ru';
+  const op=document.getElementById('profileOldPass').value,np=document.getElementById('profileNewPass').value,np2=document.getElementById('profileNewPass2').value;
+  if(!op||!np){showToast(isRu?'Введите пароль':'Пароль енгізіңіз','error');return;}
+  if(np.length<8){showToast(t('pass_short'),'error');return;}
+  if(np!==np2){showToast(t('pass_mismatch'),'error');return;}
+  const users=DB.getUsers(),user=users[currentUser.id];
+  if(!user||user.password!==btoa(unescape(encodeURIComponent(op)))){showToast(isRu?'Старый пароль неверный':'Ескі пароль дұрыс емес','error');return;}
+  users[currentUser.id].password=btoa(unescape(encodeURIComponent(np)));DB.saveUsers(users);
+  ['profileOldPass','profileNewPass','profileNewPass2'].forEach(id=>document.getElementById(id).value='');
+  showToast(t('profile_pass_changed'),'success');
+}
+function triggerAvatarUpload(){document.getElementById('avatarFileInput').click();}
+function handleAvatarUpload(e){
+  const file=e.target.files[0];if(!file)return;const isRu=currentLang==='ru';
+  if(file.size>5*1024*1024){showToast(isRu?'Файл слишком большой':'Файл өте үлкен','error');return;}
+  const r=new FileReader();
+  r.onload=ev=>{
+    const url=ev.target.result;
+    const users=DB.getUsers();if(users[currentUser.id])users[currentUser.id].avatar=url;DB.saveUsers(users);
+    currentUser.avatar=url;localStorage.setItem('ab_session',JSON.stringify(currentUser));
+    const ai=document.getElementById('profileAvatarImg'),pi=document.getElementById('profileInitialsPlaceholder');
+    if(ai){ai.src=url;ai.style.display='';}if(pi)pi.style.display='none';
+    const ha=document.getElementById('headerAvatarImg');if(ha){ha.src=url;ha.style.display='';}
+    const ie=document.getElementById('userInitials');if(ie)ie.style.display='none';
+    const stored=DB.getUserListings();stored.forEach(l=>{if(l.sellerId===currentUser.id)l.sellerAvatar=url;});DB.saveUserListings(stored);
+    listings.forEach(l=>{if(l.sellerId===currentUser.id)l.sellerAvatar=url;});
+    e.target.value='';renderListings();showToast(isRu?'✓ Фото сохранено!':'✓ Фото сақталды!','success');
+  };r.readAsDataURL(file);
+}
+function deleteMyListing(id){
+  if(!confirm(t('profile_del_listing_confirm')))return;
+  const i=listings.findIndex(l=>l.id===id);if(i>-1)listings.splice(i,1);
+  DB.saveUserListings(DB.getUserListings().filter(l=>l.id!==id));
+  renderListings();renderProfileListings();showToast(t('listing_deleted'),'success');
+}
+
+
+// ====== ADMIN PANEL ======
+const ADMIN_AUTH_KEY='ab_admin_session';
+const ADMIN_SALT='mm_admin_salt_2026_06';
+const ADMIN_LOGIN_HASH='009b1a232f7d063045af0c71bf9618f6c469ef5ec076b4ba6ca0186a4aa1d7d2';
+const ADMIN_PASS_HASH='116403c77f26a7a775e335ac72c4f2a4ae2c0102f4c5b06333c41eef2f0f8ef5';
+async function adminSha256(text){
+  const data=new TextEncoder().encode(text);
+  const hash=await crypto.subtle.digest('SHA-256',data);
+  return Array.from(new Uint8Array(hash)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function isAdminLoggedIn(){return localStorage.getItem(ADMIN_AUTH_KEY)==='1';}
+function installAdminEntrypoints(){
+  if(!document.getElementById('adminHeaderBtn')){
+    const actions=document.querySelector('.header-actions');
+    if(actions){const b=document.createElement('button');b.id='adminHeaderBtn';b.className='btn btn-outline btn-sm admin-entry-btn';b.innerHTML='<i class="fas fa-user-shield"></i> <span>Admin</span>';b.onclick=openAdminPanel;actions.appendChild(b);}
+  }
+  const mobile=document.getElementById('mobileMenu');
+  if(mobile&&!document.getElementById('adminMobileBtn')){
+    const a=document.createElement('a');a.id='adminMobileBtn';a.innerHTML='<i class="fas fa-user-shield"></i> Admin panel';a.onclick=()=>{openAdminPanel();toggleMobileMenu();};
+    const postBtn=mobile.querySelector('button.btn-primary');mobile.insertBefore(a,postBtn||null);
+  }
+}
+function openAdminPanel(){
+  if(!isAdminLoggedIn()){openModal('adminLoginModal');return;}
+  const page=document.getElementById('adminPage');if(!page)return;
+  page.style.display='block';document.body.style.overflow='hidden';refreshAdminPanel();
+}
+function closeAdminPanel(){const page=document.getElementById('adminPage');if(page)page.style.display='none';if(!document.querySelector('.modal-overlay.active'))document.body.style.overflow='';}
+async function handleAdminLogin(e){
+  e.preventDefault();
+  const login=document.getElementById('adminLoginName').value.trim();
+  const pass=document.getElementById('adminLoginPass').value;
+  const loginOk=(await adminSha256(ADMIN_SALT+'|'+login))===ADMIN_LOGIN_HASH;
+  const passOk=(await adminSha256(ADMIN_SALT+'|'+pass))===ADMIN_PASS_HASH;
+  if(loginOk&&passOk){
+    localStorage.setItem(ADMIN_AUTH_KEY,'1');closeModal('adminLoginModal');document.getElementById('adminLoginForm').reset();openAdminPanel();showToast('Админ панель ашылды','success');
+  }else{document.getElementById('adminLoginPass').value='';showToast('Логин немесе пароль қате','error');}
+}
+function adminLogout(){localStorage.removeItem(ADMIN_AUTH_KEY);closeAdminPanel();showToast('Админнен шықтыңыз');}
+function switchAdminTab(name,btn){
+  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));if(btn)btn.classList.add('active');
+  document.querySelectorAll('.admin-panel').forEach(p=>p.classList.remove('active'));
+  const panel=document.getElementById('adminPanel'+name.charAt(0).toUpperCase()+name.slice(1));if(panel)panel.classList.add('active');
+  refreshAdminPanel();
+}
+function getDeletedListingIds(){try{return JSON.parse(localStorage.getItem('ab_admin_deleted_listings')||'[]')}catch{return[]}}
+function saveDeletedListingIds(ids){localStorage.setItem('ab_admin_deleted_listings',JSON.stringify([...new Set(ids)]));}
+function refreshAdminPanel(){renderAdminStats();renderAdminListings();renderAdminUsers();renderAdminChats();}
+function getAdminUsers(){
+  const realUsers=Object.values(DB.getUsers()).map(u=>({...u,source:'Тіркелген қолданушы',listingCount:getAllListings().filter(l=>l.sellerId===u.id).length}));
+  const byName={};
+  getAllListings().forEach(item=>{
+    const key=item.sellerId||('demo_'+String(item.seller||'seller').toLowerCase().replace(/\s+/g,'_'));
+    if(realUsers.find(u=>u.id===key))return;
+    if(!byName[key])byName[key]={id:key,name:item.seller||'Demo seller',email:key+'@mamamarket.demo',city:item.city||'',phone:'+7 demo',avatar:item.sellerAvatar||'',source:'Demo сатушы',listingCount:0};
+    byName[key].listingCount++;
+    if(!byName[key].city&&item.city)byName[key].city=item.city;
+  });
+  return[...realUsers,...Object.values(byName)];
+}
+function adminDeleteDemoSeller(id){
+  if(!confirm('Осы demo сатушының хабарландыруларын өшіру керек пе?'))return;
+  const shouldRemove=l=>(l.sellerId===id)||(('demo_'+String(l.seller||'seller').toLowerCase().replace(/\s+/g,'_'))===id);
+  const ids=getAllListings().filter(shouldRemove).map(l=>l.id);
+  DB.saveUserListings(DB.getUserListings().filter(l=>!shouldRemove(l)));
+  ids.forEach(id=>{const i=listings.findIndex(l=>l.id===id);if(i>-1)listings.splice(i,1);});
+  saveDeletedListingIds([...getDeletedListingIds(),...ids]);
+  renderListings();refreshAdminPanel();showToast('Demo сатушы өшірілді','success');
+}
+function renderAdminStats(){
+  const convs=DB.getConvs();let msgCount=0;Object.keys(convs).forEach(cid=>msgCount+=DB.getMsgs(cid).length);
+  const set=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val;};
+  set('adminStatListings',getAllListings().length);set('adminStatUsers',getAdminUsers().length);set('adminStatChats',Object.keys(convs).length);set('adminStatMessages',msgCount);
+}
+function renderAdminListings(){
+  const body=document.getElementById('adminListingsBody');if(!body)return;
+  const q=(document.getElementById('adminListingSearch')?.value||'').toLowerCase();
+  let items=getAllListings().filter(i=>[i.title,i.city,i.seller,i.category].join(' ').toLowerCase().includes(q));
+  body.innerHTML=items.length?items.map(item=>`<tr>
+    <td><img class="admin-thumb" src="${esc(item.image)}" alt=""></td>
+    <td><b>${esc(item.title)}</b><div class="admin-muted">${esc(item.category)} · ${esc(item.type)}</div></td>
+    <td>${formatPrice(item)}</td><td>${esc(item.city||'')}</td><td>${esc(item.seller||'')}</td>
+    <td><div class="admin-actions"><button class="btn btn-outline btn-sm" onclick="openProductDetail(${item.id})"><i class="fas fa-eye"></i></button><button class="btn btn-outline btn-sm admin-danger" onclick="adminDeleteListing(${item.id})"><i class="fas fa-trash-alt"></i> Өшіру</button></div></td>
+  </tr>`).join(''):`<tr><td colspan="6" style="text-align:center;color:var(--gray);padding:28px">Хабарландыру табылмады</td></tr>`;
+}
+function renderAdminUsers(){
+  const body=document.getElementById('adminUsersBody');if(!body)return;
+  const q=(document.getElementById('adminUserSearch')?.value||'').toLowerCase();
+  const users=getAdminUsers().filter(u=>[u.name,u.email,u.city,u.phone,u.source].join(' ').toLowerCase().includes(q));
+  body.innerHTML=users.length?users.map(u=>`<tr>
+    <td><b>${esc(u.name||'')}</b><div class="admin-muted">${esc(u.source||'Қолданушы')} · ${u.listingCount||0} хабарландыру</div></td>
+    <td>${esc(u.email||'')}</td>
+    <td>${esc(u.city||'')}</td>
+    <td>${esc(u.phone||'')}</td>
+    <td><button class="btn btn-outline btn-sm admin-danger" onclick="${u.source==='Demo сатушы'?`adminDeleteDemoSeller('${esc(u.id)}')`:`adminDeleteUser('${esc(u.id)}')`}"><i class="fas fa-user-times"></i> Өшіру</button></td>
+  </tr>`).join(''):`<tr><td colspan="5" style="text-align:center;color:var(--gray);padding:28px">Қолданушы жоқ</td></tr>`;
+}
+function renderAdminChats(){
+  const body=document.getElementById('adminChatsBody');if(!body)return;
+  const convs=Object.values(DB.getConvs()).sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0));
+  body.innerHTML=convs.length?convs.map(c=>`<tr><td><b>${esc(c.user1Name||'')}</b> ↔ <b>${esc(c.user2Name||'')}</b></td><td>${esc(c.listingTitle||'')}</td><td>${fmtTime(c.updatedAt)}</td><td><button class="btn btn-outline btn-sm admin-danger" onclick="adminDeleteChat('${esc(c.id)}')"><i class="fas fa-trash-alt"></i> Өшіру</button></td></tr>`).join(''):`<tr><td colspan="4" style="text-align:center;color:var(--gray);padding:28px">Чат жоқ</td></tr>`;
+}
+function adminDeleteListing(id){
+  if(!confirm('Бұл хабарландыруды өшіру керек пе?'))return;
+  const stored=DB.getUserListings().filter(l=>l.id!==id);DB.saveUserListings(stored);
+  const i=listings.findIndex(l=>l.id===id);if(i>-1)listings.splice(i,1);
+  saveDeletedListingIds([...getDeletedListingIds(),id]);
+  wishlist=wishlist.filter(w=>w!==id);if(currentUser)DB.saveWishlist(wishlist,currentUser.id);else DB.saveWishlist(wishlist);
+  renderListings();updateWishlistBadge();refreshAdminPanel();showToast('Хабарландыру өшірілді','success');
+}
+function adminDeleteUser(id){
+  if(!confirm('Қолданушыны және оның хабарландыруларын өшіру керек пе?'))return;
+  const users=DB.getUsers();delete users[id];DB.saveUsers(users);
+  DB.saveUserListings(DB.getUserListings().filter(l=>l.sellerId!==id));
+  if(currentUser&&currentUser.id===id){currentUser=null;localStorage.removeItem('ab_session');updateAuthUI();}
+  renderListings();refreshAdminPanel();showToast('Қолданушы өшірілді','success');
+}
+function adminDeleteChat(id){if(!confirm('Чатты өшіру керек пе?'))return;const convs=DB.getConvs();delete convs[id];DB.saveConvs(convs);localStorage.removeItem('ab_msgs_'+id);renderAdminChats();renderAdminStats();updateChatBadge();showToast('Чат өшірілді','success');}
+function adminExportData(){
+  const data={exportedAt:new Date().toISOString(),items:{}};
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith('ab_')){try{data.items[k]=JSON.parse(localStorage.getItem(k))}catch{data.items[k]=localStorage.getItem(k)}}}
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mamamarket-admin-export.json';a.click();URL.revokeObjectURL(a.href);
+}
+function adminClearUserListings(){if(!confirm('Қолданушылар қосқан барлық хабарландырулар өшірілсін бе?'))return;DB.saveUserListings([]);renderListings();refreshAdminPanel();showToast('Қолданушы хабарландырулары тазаланды','success');}
+function adminClearChats(){if(!confirm('Барлық чаттар өшірілсін бе?'))return;Object.keys(DB.getConvs()).forEach(cid=>localStorage.removeItem('ab_msgs_'+cid));DB.saveConvs({});refreshAdminPanel();updateChatBadge();showToast('Чаттар тазаланды','success');}
+// ====== KEYBOARD ======
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){const a=document.querySelector('.modal-overlay.active');if(a)closeModal(a.id);const m=document.getElementById('mobileMenu');if(m.classList.contains('active'))toggleMobileMenu();}});
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeModal(o.id);}));
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1';});},{threshold:0.1});
+
+// ====== INIT ======
+document.addEventListener('DOMContentLoaded',()=>{
+  restoreDark();updateMbnLabels();installAdminEntrypoints();restoreSession();
+  renderListings();renderConsultations();updateWishlistBadge();
+  document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+  const ci=document.getElementById('chatInput');if(ci)ci.placeholder=t('chat_placeholder');
+});
+</script>
+</body>
+</html>
